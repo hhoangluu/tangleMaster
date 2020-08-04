@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 4004eb37c4f34f208ae4314a4814aea1
+timeCreated: 1593428703
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: "Kanit-ExtraBold"
+  fontNames:
+  - Kanit
+  fallbackFontReferences: []
+  customCharacters:
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData:
+  assetBundleName: 
+  assetBundleVariant: 

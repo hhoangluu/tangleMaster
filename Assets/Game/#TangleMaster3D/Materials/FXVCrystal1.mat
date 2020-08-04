@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: "FXVCrystal1"
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: "USE_ENVIRO_MAP USE_MAIN_TEXTURE USE_NORMAL_MAP USE_REFRACTION USE_SUBSURFACE_SCATTERING"
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_CustomRenderQueue: 2450
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Enviro:
+        m_Texture: {fileID: 2800000, guid: e02552622eb746c486cf1c091dcdf6c3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: ae30ca18659f4ebd8ba7cbed65ed3f96, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: 4f18f40bd90d4274b1759c62a8cc869f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BumpScale: 1
+    - _ColorRimMax: 1
+    - _ColorRimMin: 0.45
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 10
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Metallic: 0
+    - _Mode: 3
+    - _OcclusionStrength: 1
+    - _Parallax: 0.02
+    - _ReflectionRimMax: 0.85
+    - _ReflectionRimMin: 0.02
+    - _ReflectionTime: 0
+    - _RefractionFromNormal: 0.448
+    - _RefractionRimMax: 0.6
+    - _RefractionRimMin: 0.5
+    - _RefractionStrength: 0.448
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _SubsurfaceOffset: 0.266
+    - _SubsurfacePower: 18.8
+    - _SubsurfaceScale: 16
+    - _TextureRimMax: 1.59
+    - _TextureRimMin: -0.3
+    - _TransparencyRimMax: 0.05
+    - _TransparencyRimMin: 0.85
+    - _UVSec: 0
+    - _ZWrite: 0
+    - fLTDistortion: 0.07
+    - fLTScale: 1
+    - fLightAttentuation: 1.2
+    - iLTPower: 1
+    m_Colors:
+    - _Color: {r: 0.6516943, g: 0.1284265, b: 0.6981132, a: 0.934}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _MainTexColor: {r: 0.5205904, g: 0.1496529, b: 0.5566038, a: 0.891}
+    - _ReflectionColor: {r: 0.6942042, g: 0.8823529, b: 0.8200693, a: 1}
+    - _ReflectionColorB: {r: 1, g: 1, b: 1, a: 1}
+    - _ReflectionColorG: {r: 0.5147059, g: 0.5147059, b: 0.5147059, a: 1}
+    - _ReflectionColorR: {r: 0.6415094, g: 0.2589828, b: 0.2148452, a: 1}
+    - _lightPosition: {r: 0, g: 0, b: 0, a: 0}
+    - fLTAmbient: {r: 0, g: 0, b: 0, a: 1}
