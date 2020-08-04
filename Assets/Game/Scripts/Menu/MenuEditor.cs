@@ -13,7 +13,7 @@ public class MenuEditor : MenuAbs<MenuEditor>
         base.Open();
         _bg.gameObject.SetActive(true);
         _levelDirectoryInput.gameObject.SetActive(true);
-        TangleMasterGame.instance.StartGame();
+        TangleMasterGame.instance.EditorMode();
     }
 
     public override void Close()
@@ -21,6 +21,7 @@ public class MenuEditor : MenuAbs<MenuEditor>
         base.Close();
         _bg.gameObject.SetActive(false);
         _levelDirectoryInput.gameObject.SetActive(false);
+        TangleMasterGame.instance.EditorModeExit();
         MenuMain.instance.Open();
     }
 

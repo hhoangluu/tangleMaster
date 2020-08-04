@@ -31,8 +31,15 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
 
     private void Start()
     {
-        FiveDebug.LogError("TangleMasterGame-Start-LoadLevel");
-        levelsManager.LoadLevel(curLevel);
+        //for (int i = 0; i < rodsManager.rods.Count; i++)
+        //{
+        //    rodsManager.rods[i].curPlugPlace = plugPlacesManager.plugPlaces[i];
+        //    plugPlacesManager.plugPlaces[i].curRodPlugger = rodsManager.rods[i].rodPlugger;
+
+        //    rodsManager.rods[i].SetPlugged();
+        //}
+
+        LevelsManager.instance.LoadLevel(curLevel);
     }
 
     private IEnumerator DelayDo(float delay, Action toDo)
@@ -111,24 +118,17 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
 
         if (_totalFree == rodsManager.rods.Count)
         {
-            gameController.isControllable = false;
             if (_corou != null) StopCoroutine(_corou);
             _corou = StartCoroutine(ShowWellDone());
-            //if (curLevel + 1 < LevelsManager.instance.maxLevel)
-            //{
-            //    gameController.isControllable = false;
-            //    if (_corou != null) StopCoroutine(_corou);
-            //    _corou = StartCoroutine(ShowWellDone());
-            //}
         }
     }
 
     private IEnumerator ShowWellDone()
     {
-        FiveDebug.LogError("ShowWellDone");
+        FiveDebug.LogError("LoadNextLevel");
         while (_totalFreeDone < rodsManager.rods.Count)
             yield return GameManager.WaitForEndOfFrame;
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         MenuWellDone.instance.rewardX3Amount.text = "123";
         MenuWellDone.instance.rewardAmount.text = "12";
@@ -137,6 +137,7 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
 
     public void LoadNextLevel()
     {
+        FiveDebug.LogError("LoadNextLevel");
         _totalFree = 0;
         _totalFreeDone = 0;
         _isPlayable = false;
@@ -144,42 +145,27 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
         MenuMain.instance.Open();
     }
 
-    //private IEnumerator LoadNextLevel()
-    //{
-    //    FiveDebug.LogError("LoadNextLevel");
-    //    while (_totalFree < LevelsManager.instance.maxLevel)
-    //        yield return GameManager.WaitForEndOfFrame;
-    //    yield return new WaitForSeconds(1f);
-    //    FiveDebug.LogError("LoadNextLevel-WaitDone");
-    //    //curLevel += 1;
-    //    _totalFree = 0;
-    //    _totalFreeDone = 0;
-    //    _isPlayable = false;
-    //    LevelsManager.instance.LoadLevel(curLevel + 1);
-    //    MenuMain.instance.Open();
-    //}
-
     public void ResetGame()
     {
         SceneManager.LoadScene(0);
+    }     
+
+    public void EditorMode()
+    {
+        _isPlayable = true;
+        gameController.isControllable = true;
     }
 
-    //public void StopGame()
-    //{
-    //    _isPlayable = false;
-
-    //}        
+    public void EditorModeExit()
+    {
+        _isPlayable = false;
+        gameController.isControllable = false;
+    }
 
     public void StartGame()
     {
-        FiveDebug.LogError("StartGame!");
         _isPlayable = true;
         gameController.isControllable = true;
         rodsManager.rods.ForEach(r => r.rodChecker.isCheckFree = true);
-        //StartCoroutine(DelayDo(1f, () =>
-        //{
-        //    _gameController.isControllable = true;
-        //    rodsManager.rods.ForEach(r => r.rodChecker.isCheckFree = true);
-        //}));
     }
 }

@@ -4,13 +4,14 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using Obi;
-using UnityEngine.UI;
 
+[Serializable]
 public class Level
 {
     public List<LevelRod> _levelRod = new List<LevelRod>();
 }
 
+[Serializable]
 public class LevelRod
 {
     public ActorState _actorState;
@@ -35,51 +36,48 @@ public class ActorState
     public List<Vector3> angularVelocities = new List<Vector3>();
 }
 
+//asd
 public class LevelsManager : FiveSingleton<LevelsManager>
 {
-    [SerializeField]
-    private Text _curLevelText;
-    //public event Action CurLevelChanged = delegate { };
+    public event Action CurLevelChanged = delegate { };
     private const string KEY_LEVEL_CURRENT = "KEY_LEVEL_CURRENT";
     public int curLevel
     {
         get => PlayerPrefs.GetInt(KEY_LEVEL_CURRENT, 0);
-        private set { PlayerPrefs.SetInt(KEY_LEVEL_CURRENT, value); _curLevelText.text = "Level: " + curLevel.ToString(); }
+        set { PlayerPrefs.SetInt(KEY_LEVEL_CURRENT, value); CurLevelChanged(); }
     }
 
-    private static string _saveLevelDirectory => "/Game/Levels/";
-    private static string _levelExtension => ".actorState";
+    private static string _saveLevelDirectory => "/Game/Resources/Levels/";
+    private static string _levelExtension => ".json";
 
-    private List<string> _levelDirectory = new List<string>();
+    //private List<string> _levelDirectory = new List<string>();
 
     private LevelModel _curLevelModel;
     public LevelModel curLevelModel => _curLevelModel;
 
+    [SerializeField]
     private int _maxLevel;
     public int maxLevel => instance._maxLevel;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        FiveDebug.LogError("LevelsManager-Awake!");
-        _curLevelText.text = "Level: " + curLevel.ToString();
-        Debug.Log("GetPath(_saveLevelDirectory): " + GetPath(_saveLevelDirectory));
-        for (int i = 0; i < 100; i++)
-        {
-            string directory = GetPath(_saveLevelDirectory) + i.ToString() + "/";
-            Debug.Log("directory: " + directory);
-            if (Directory.Exists(directory))
-            {
-                _levelDirectory.Add(directory);
-            }
-            else
-            {
-                _maxLevel = _levelDirectory.Count();
-                FiveDebug.LogError("LevelsManager-MaxLevel: " + maxLevel);
-                return;
-            }
-        }
-    }
+    //protected override void Awake()
+    //{
+    //    base.Awake();
+    //    for (int i = 0; i < 100; i++)
+    //    {
+    //        string directory = GetPath(_saveLevelDirectory) + i.ToString() + "/";
+    //        //Debug.Log("directory: " + directory);
+    //        if (Directory.Exists(directory))
+    //        {
+    //            _levelDirectory.Add(directory);
+    //        }
+    //        else
+    //        {
+    //            _maxLevel = _levelDirectory.Count();
+    //            FiveDebug.LogError("LevelsManager-MaxLevel: " + maxLevel);
+    //            return;
+    //        }
+    //    }
+    //}
 
     public void LoadLevel(int level)
     {
@@ -105,63 +103,38 @@ public class LevelsManager : FiveSingleton<LevelsManager>
         FiveDebug.LogError("LevelsManager-LoadSaveLevel: " + (level + 1) + "/" + maxLevel);
         if (level >= maxLevel) return null;
 
-        Level levelResult = new Level();
-
-        string levelPath = _levelDirectory[level];
-        //Debug.Log("LoadLevel levelPath: " + levelPath);
-        foreach (var n in Directory.GetFiles(levelPath))
-        {
-            //Debug.Log("n: " + n);
-            if (Path.GetExtension(n) == _levelExtension)
-            {
-                string fileName = Path.GetFileName(n);
-
-                string rodN = "";
-                for (int lR = fileName.IndexOf("R") + 1; lR < fileName.IndexOf("-"); lR++)
-                {
-                    rodN = rodN + fileName[lR];
-                }
-                int rodNumber;
-                int.TryParse(rodN, out rodNumber);
-
-                string pluggerN = "";
-                for (int pN = fileName.IndexOf("P") + 1; pN < fileName.IndexOf("."); pN++)
-                {
-                    pluggerN = pluggerN + fileName[pN];
-                }
-                int pluggerNumber;
-                int.TryParse(pluggerN, out pluggerNumber);
-
-                string json = File.ReadAllText(n);
-                ActorState actorState = JsonUtility.FromJson<ActorState>(json);
-
-                levelResult._levelRod.Add(new LevelRod(actorState, rodNumber, pluggerNumber));
-            }
-        }
-        levelResult._levelRod = levelResult._levelRod.OrderBy(r => r._rodIndex).ToList();
-
-        return levelResult;
+        string path = "Levels/" + "Level" + level.ToString() + _levelExtension;
+        Debug.Log("LoadSaveLevel: " + path);
+        string jsonFilePath = path.Replace(".json", "");
+        TextAsset levelSaveTextAsset = Resources.Load<TextAsset>(jsonFilePath);
+        Debug.Log("levelSaveJson: " + levelSaveTextAsset.text);
+        Level levelSave = JsonUtility.FromJson<Level>(levelSaveTextAsset.text);
+        return levelSave;
     }
 
     public void SaveCurMeshState(int level)
     {
-        string directory = GetPath(_saveLevelDirectory) + level.ToString() + "/";
+        string directory = Application.dataPath + _saveLevelDirectory;
 
         FiveDebug.LogError("LevelsManager-SaveCurMeshState: " + directory);
 
-        if (Directory.Exists(directory))
-            Directory.Delete(directory, true);
-        Directory.CreateDirectory(directory);
+        if (!Directory.Exists(directory))
+            Directory.CreateDirectory(directory);
+
+        Level levelSave = new Level();
 
         for (int r = 0; r < TangleMasterGame.rodsManager.rods.Count; r++)
         {
             int indexRod = TangleMasterGame.plugPlacesManager.IndexOfPlugPlace(TangleMasterGame.rodsManager.rods[r].curPlugPlace);
-            string savePath = Path.Combine(directory, string.Format("R{0}-P{1}{2}", r.ToString(), indexRod, _levelExtension));
 
             ActorState actorState = SaveActorState(TangleMasterGame.rodsManager.rods[r].obiRod);
-            string data = JsonUtility.ToJson(actorState);
-            File.WriteAllText(savePath, data);
+            LevelRod levelRod = new LevelRod(actorState, r, indexRod);
+            levelSave._levelRod.Add(levelRod);
         }
+        string data = JsonUtility.ToJson(levelSave);
+        string path = directory + "Level" + level.ToString() + _levelExtension;
+        FiveDebug.LogError("LevelsManager-SaveCurMeshState path: " + path);
+        File.WriteAllText(path, data);
     }
 
     private void LoadActorState(ObiActor actor, ActorState actorState)
@@ -201,16 +174,16 @@ public class LevelsManager : FiveSingleton<LevelsManager>
         return actorState;
     }
 
-    private static string GetPath(string directory)
-    {
-#if !UNITY_EDITOR
-                return Application.persistentDataPath + directory;
-#else
-        if (!Directory.Exists(Application.dataPath + directory))
-            Directory.CreateDirectory(Application.dataPath + directory);
-        return Application.dataPath + directory;
-#endif
-    }
+//    private static string GetPath(string directory)
+//    {
+//#if UNITY_EDITOR
+//        return Application.dataPath + directory;
+//#else
+//        if (!Directory.Exists(Application.dataPath + directory))
+//            Directory.CreateDirectory(Application.dataPath + directory);
+//        return Application.dataPath + directory;
+//#endif
+//    }
 }
 
 //void Reset(ObiActor actor)

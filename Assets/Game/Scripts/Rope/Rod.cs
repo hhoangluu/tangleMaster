@@ -131,8 +131,8 @@ public class Rod : MonoBehaviour
         {
             _curPlugPlace.SetUnPlugged();
             _curPlugPlace.curRodPlugger = null;
-            onDone?.Invoke();
             gameObject.SetActive(false);
+            onDone?.Invoke();
         }));
     }
 
