@@ -2,6 +2,7 @@
 using Unity.Profiling;
 using System.Collections.Generic;
 using Obi;
+using Five.String;
 
 [RequireComponent(typeof(ObiActor))]
 public class RodChecker : MonoBehaviour
@@ -44,19 +45,36 @@ public class RodChecker : MonoBehaviour
     private int _rodCheckBoxCollider2DListCount = 0;
     private Collider2D[] colliders;
 
+    [SerializeField]
+    private MeshRenderer _meshRenderer;
+
+    private void Start()
+    {
+        if (!_meshRenderer) _meshRenderer = GetComponent<MeshRenderer>();
+        DMCGameUtilities_OnChangeMaterialRope(DMCGameUtilities.MaterialRopeCurrent);
+    }
+
     public void OnEnable()
     {
         impostors = new ParticleImpostorRendering();
         GetComponent<ObiActor>().OnInterpolate += DrawParticles;
+        DMCGameUtilities.OnChangeMaterialRope += DMCGameUtilities_OnChangeMaterialRope;
     }
 
     public void OnDisable()
     {
         GetComponent<ObiActor>().OnInterpolate -= DrawParticles;
+        DMCGameUtilities.OnChangeMaterialRope -= DMCGameUtilities_OnChangeMaterialRope;
 
         if (impostors != null)
             impostors.ClearMeshes();
         DestroyImmediate(material);
+    }
+    private void DMCGameUtilities_OnChangeMaterialRope(int index)
+    {
+        var mat = new Material(MenuTheme.instance._materialRope[index]);
+        _meshRenderer.materials = new Material[1];
+        _meshRenderer.material = mat;
     }
 
     private void CreateMaterialIfNeeded()
@@ -145,8 +163,9 @@ public class RodChecker : MonoBehaviour
     {
         if (!isCheckFree) return;
         if (!_hostRod.isPluggerBusy && !_hostRod.isFree && _hostRod.curRodState != RodState.unplugged)
-            if (CheckFree())
-                _hostRod.IsFree();
+        {
+            if (CheckFree()) _hostRod.IsFree();
+        }
     }
 
     private bool CheckFree()

@@ -1,0 +1,6 @@
+Version 1.0.0
+- Features:
+	+ Update core
+20190215:
+- Features:
+	+ Update

@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using Obi;
 using System.Collections.Generic;
+using DG.Tweening;
 
 public enum RodState
 {
@@ -30,6 +31,9 @@ public class Rod : MonoBehaviour
     public RodChecker rodChecker => _rodChecker;
 
     public IEnumerable<Mesh> ParticleMeshes => _rodChecker.ParticleMeshes;
+
+    [SerializeField]
+    private Transform _ropParent;
 
     public List<Mesh> listMeshes
     {
@@ -105,6 +109,7 @@ public class Rod : MonoBehaviour
     public void Reset()
     {
         _curPlugPlace = null;
+        //_ropParent.localScale = Vector3.one;
         _curRodState = RodState.unplugged;
         _isPluggerBusy = false;
         _isFree = false;
@@ -127,6 +132,9 @@ public class Rod : MonoBehaviour
     {
         while (_isPluggerBusy) yield return GameManager.WaitForEndOfFrame;
         if (_ropePluggerCorou != null) StopCoroutine(_ropePluggerCorou);
+        Debug.Log("@LOG SetFreeIE");
+        //_ropParent.DOScaleY(0, 0.9f);
+        GameController.instance.AddConfetti(transform.position + new Vector3(0, 1.8f, 0));
         _ropePluggerCorou = StartCoroutine(DelayDoIE(1f, () =>
         {
             _curPlugPlace.SetUnPlugged();

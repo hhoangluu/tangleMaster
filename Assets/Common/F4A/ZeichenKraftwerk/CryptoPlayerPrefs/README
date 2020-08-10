@@ -1,0 +1,61 @@
+ Thanks for purchasing the CryptoPlayerPrefs class for Unity3D!
+
+The CryptoPlayerPrefs class is an alternative for the PlayerPrefs class, by adding cryptography.
+Thus, it is possible to secure sensitive data and protect them from game modification and cheating.
+It is capable of using the Advanced Encryption Standard (Rijndael Algorithm) (default activated).
+It also offers an XOR-option, to make the values "unreadable" for humans (default activated).
+
+=== How to use? ===
+You can use the CryptoPlayerPrefs class just like the PlayerPrefs class, just Replace PlayerPrefs by CryptoPlayerPrefs.
+
+But it is recommended to set the salt for every application indivudally via the CryptoPlayerPrefs.setSalt(int) Method.
+Or you can also use the CryptPlayerPrefsManager to set this setting in the editor.
+You can even activate / deactivate Rijndael and the XOR seperately.
+But in order to maximize security of the data it should be left as default.
+
+ATTENTION: 
+When you released a productive version of your application don't change settings anymore (or think about migration BEFORE!)
+If you change it the cryptographie will be messed up and the keys won't work anymore etc..
+A Mono.Security.Cryptography.SymmetricTransform.ThrowBadPaddingException would be thrown.
+Therefore: Set these settings ONCE and don't change them anymore!
+
+= Example =
+PlayerPrefs.HasKey("coins") => CryptoPlayerPrefs.HasKey("coins")
+PlayerPrefs.SetInt("coins", 1000) => CryptoPlayerPrefs.SetInt("coins", 1000)
+and so on...
+
+There is also an Example Scene which uses the CryptoPlayerPrefs class.
+It has a bouncy ball which collides with boxes and everytime a collision occured it is saved according to the box. 
+
+= CryptoPlayerPrefsX =
+We've added a adjusted version of ArrayPrefs2 (http://wiki.unity3d.com/index.php/ArrayPrefs2), so you can use these additional features in a crypted way.
+Therewith you can save arrays and other stuff.
+
+=== Limitations ===
+You must not use the stripping level 3 (Android / iOS)!
+The CryptoPlayerPrefs class relies on the System.Security component and this is not included in the micro mscorlib.
+Stripping level 0-2 works fine (if you use the given link.xml).
+
+=== Questions? ===
+Don't hesitate to send us an email: assetstore@zeichenkraftwerk.de
+
+== Version History == 
+- 1.3.3
+* Fixed support for Windows Store apps (failed signing due to usage of unallowed API)
+
+- 1.3.2
+* Added support for Windows Phone and Windows Store Apps (Metro)
+
+- 1.1.2:
+* Added fix, so that MonoDevlop doesn't complain about default value defintions in method head.
+
+- 1.1: 
+* Added a adjusted version of ArrayPrefs2 (http://wiki.unity3d.com/index.php/ArrayPrefs2), so you can use these features in a crypted way.
+Use CryptoPlayerPrefsX for that.
+* Added version history and CryptoPlayerPrefsX section in readme
+
+- 1.0.1: 
+* Added link.xml, so Strippling Level 0-2 it works out of the box on Android and iOS
+
+- 1.0: 
+*Initial Release

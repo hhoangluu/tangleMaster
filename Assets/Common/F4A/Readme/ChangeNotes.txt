@@ -1,0 +1,122 @@
+Version 20190402
+- Features:
+	+ Remove ChangeNotes to ChangeLogs
+Version 20190329
+- Bugs:
+	+ Fix bug in SocialManager
+Version 20190319
+- Features:
+	+ Add Resolution game
+Version 2.0.6
+- Features:
+	+ Change struct F4A
+Version 2.0.5
+- Features:
+	+ Update AdsManager
+Version 2.0.4
+- Features:
+	+ Update AdsManager
+Version 2.0.3
+- Features:
+	+ Add ScriptInspector3
+Version 2.0.2
+- Features:
+	+ Update AdsManager
+	+ Add load ads from server and file local
+Version 2.0.1a
+Version 2.0.1
+- Features:
+	+ Add method WriteLog in F4ADebug
+Version 20180423
+- Features:
+	+ Add Firebase: FirebaseAnalytics
+Version 20180417
+- Features:
+	+ Add FindPrefabsUseTextureEditor
+	+ Add ToolFinder (F4AGetGUID, F4AAssetFinderWindow (continue))
+- Changes:
+	+ Change action (Action_Consumable_IAP, Action_NonConsumable_IAP, Action_Subscription_IAP, ActionRestorePurchases) in IAPManager to action static.
+Version 20180403
+- Features:
+	+ Add class editor "ImageToUnitySprites", "SpriteTextureSliceExporter"
+	+ Add MapView
+Version 20180328
+- Fixes:
+	+ Fix bug in SocialManager
+	+ Add "GetAndroidEmailAccounts" method in AndroidNativeFunctions
+Version 20180308
+- Features:
+	+ Add build Samsung
+	+ Fix bug AdsManager
+Version 20180301
+- Features:
+	+ Add button "Load Game Services" in SocialManager.cs
+	+ Add button "Delete Empty Directories in Project" in MobileThirdManager.cs
+Version 20180228
+- Features:
+	+ Update AudioEditor.cs
+	+ Add AddComponentMenu in MobileThirdManager.cs
+Version 20180208
+- Features:
+- Changes:
+	+ Update AudioManager: ChangeSfxSource to SwitchSfx, ChangeMusicSource to SwitchMusic
+Version 20180123
+- Features:
+	+ Update AdsManager: Add App ID, App name & store link
+Version 20180119
+- Features:
+	+ Add Splash Screen
+Version 20180112
+- Features:
+	+ Update SocialManager (Add Delegate OnAuthenticate, Add class SocialManager.GameServices)
+	+ AdsManager, SocialManager, IAPManager, ShephertzManager, PlayfabManager isn't DontDestroy. They is child of MobileManager.
+Version 20180108
+- Features:
+	+ Update Class MobileThirdManager and MobileThirdEditor
+	+ Update AudioManager
+Version 20171229
+- Features:
+	+ Update all method with #if UNITY_EDITOR
+	+ Fix bug OnStorageServiceSuccess and OnStorageServiceError
+Version 20171227
+- Features:
+	+ Update AudioManager
+Version 20171221
+- Features:
+	+ Fix bug UnityAds
+Version 20171213
+- Features:
+	+ Add Method "AddActionOnFinishedRewardAds(System.Action<int, bool> onFinishedRewardAds)" and "RemoveActionOnFinishedRewardAds(System.Action<int, bool> onFinishedRewardAds)"
+	+ Add MoreGameButton.
+	+ Update AdsManager
+Version 20171119
+- Fetures:
+	+ Add AdsManager.UnityAds
+	+ AdsIntertitial with China (=> show unity ads), will try fix it on next update
+Version 20171116
+- Features:
+	+ Add Gift Code with ShephertzManager
+	+ Update AdsManager
+Version 20171107
+- Features:
+	+ Add ShephertzManager // api.shephertz.com/app42-dev.php
+- Changes:
+- Improvements:
+	+ SocialManager create partial class
+	+ AdsManager create partial class
+	+ MobileThird class
+- Fixes:
+*************************************************
+Version 1.0.1e
+Version 1.0.1
+- AdsManager:
+	+ Support: Chartboost
+	+ Add: videoAdsOrder, interstitialAdsOrder
+	+ Change prefix Action of action video to On
+	+ Update AdsManager
+*************************************************
+Version 1.0.0
+- AdsManager:
+	+ Support: Admob, UnityAds, Vungle
+- SocialManager:
+	+ Support: 

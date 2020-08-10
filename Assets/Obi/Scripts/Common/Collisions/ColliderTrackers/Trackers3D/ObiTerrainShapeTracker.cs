@@ -32,8 +32,8 @@ namespace Obi{
 
 				TerrainData data = terrain.terrainData;
 
-				int width = data.heightmapWidth;
-				int height = data.heightmapHeight;
+				int width = data.heightmapResolution;
+				int height = data.heightmapResolution;
 	
 				float[,] heights = data.GetHeights(0,0,width,height);
 				
@@ -59,13 +59,13 @@ namespace Obi{
 				TerrainData data = terrain.terrainData;
 
 				if (data != null && (data.size != size || 
-									 data.heightmapWidth != resolutionU ||
-									 data.heightmapHeight != resolutionV || 
+									 data.heightmapResolution != resolutionU ||
+									 data.heightmapResolution != resolutionV || 
 									 heightmapDataHasChanged)){
 
 					size = data.size;
-					resolutionU = data.heightmapWidth;
-					resolutionV = data.heightmapHeight;
+					resolutionU = data.heightmapResolution;
+					resolutionV = data.heightmapResolution;
 					heightmapDataHasChanged = false;
 					adaptor.Set(size,resolutionU,resolutionV,dataHandle.AddrOfPinnedObject());
                     adaptor.accurateContacts = triangleBasedContacts;

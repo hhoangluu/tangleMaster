@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Five.String;
 
 public class TangleMasterGame : FiveSingleton<TangleMasterGame>
 {
@@ -13,8 +14,6 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
     public static LevelsManager levelsManager => LevelsManager.instance;
 
     public static GameController gameController => GameController.instance;
-
-    public int curLevel => levelsManager.curLevel;
 
     private LevelModel curLevelModel => levelsManager.curLevelModel;
 
@@ -39,7 +38,7 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
         //    rodsManager.rods[i].SetPlugged();
         //}
 
-        LevelsManager.instance.LoadLevel(curLevel);
+        LevelsManager.instance.LoadLevel(DMCGameUtilities.LevelCurrent);
     }
 
     private IEnumerator DelayDo(float delay, Action toDo)
@@ -113,7 +112,7 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
     public void IsFree(Rod rod)
     {
         _totalFree += 1;
-        FiveDebug.LogError("IsFree: " + _totalFree + "/" + rodsManager.rods.Count);
+        Debug.Log("@LOG IsFree: " + _totalFree + "/" + rodsManager.rods.Count);
         rod.SetFree(onDone: () => _totalFreeDone += 1);
 
         if (_totalFree == rodsManager.rods.Count)
@@ -125,23 +124,24 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
 
     private IEnumerator ShowWellDone()
     {
-        FiveDebug.LogError("LoadNextLevel");
+        Debug.Log("@LOG LoadNextLevel");
         while (_totalFreeDone < rodsManager.rods.Count)
             yield return GameManager.WaitForEndOfFrame;
         yield return new WaitForSeconds(1f);
 
-        MenuWellDone.instance.rewardX3Amount.text = "123";
-        MenuWellDone.instance.rewardAmount.text = "12";
         MenuWellDone.instance.Open();
     }
 
     public void LoadNextLevel()
     {
-        FiveDebug.LogError("LoadNextLevel");
+        Debug.Log("@LOG LoadNextLevel");
         _totalFree = 0;
         _totalFreeDone = 0;
         _isPlayable = false;
-        LevelsManager.instance.LoadLevel(curLevel + 1);
+        if (DMCGameUtilities.LevelCurrent >= 10) DMCGameUtilities.LevelCurrent = 0;
+        else DMCGameUtilities.LevelCurrent++;
+
+        LevelsManager.instance.LoadLevel(DMCGameUtilities.LevelCurrent);
         MenuMain.instance.Open();
     }
 

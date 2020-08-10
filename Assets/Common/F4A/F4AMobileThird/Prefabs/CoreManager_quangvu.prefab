@@ -1,0 +1,1026 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1013949499431696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4060422619386584}
+  - component: {fileID: 114772118484457486}
+  m_Layer: 0
+  m_Name: CoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4060422619386584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013949499431696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4499761659025540}
+  - {fileID: 4147983646811864}
+  - {fileID: 4828751063068402}
+  - {fileID: 4085125824298970}
+  - {fileID: 224485462375785780}
+  - {fileID: 8484069208352191157}
+  - {fileID: 2118148331094503539}
+  - {fileID: 8484069209932008938}
+  - {fileID: 4958369604410425494}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114772118484457486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013949499431696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2ce0888bee34b51a7a13407f6eb206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defineAdColony: 1
+  _defineAdMob: 1
+  _defineAdNative: 0
+  _defineUnityAds: 1
+  _defineCharstboost: 0
+  _defineVungle: 1
+  _defineIAP: 1
+  _defineFacebookSDK: 1
+  _defineGameServices: 1
+  _defineUnityAnalytic: 1
+  _defineFirebaseAnalytic: 1
+  _defineFirebaseCrashlytic: 0
+  _defineFirebaseMessaging: 0
+  _defineFirebaseAuth: 0
+  IsGetConfigOnline: 1
+  _isRunInBackground: 1
+  urlConfig: https://third-work.s3.us-east-2.amazonaws.com/happy-water-draw/CoreInfo.txt
+  textConfigDefault: {fileID: 4900000, guid: 1ccab90d2eab14de789cb0e65d53f1ab, type: 3}
+  configData:
+    IsDebug: 1
+    TargetFrameRate: 60
+    IsShowTextVersion: 0
+    IsNeverSleep: 1
+    idOrNameApp: 
+    urlAssetBundle: 
+    versionAssetBundle: 1
+    urlConfigAds: https://third-work.s3.us-east-2.amazonaws.com/happy-water-draw/AdsInfo.txt
+    versionAds: 1
+    urlConfigWebView: 
+    versionWebView: 1
+    urlInAppPurchase: https://third-work.s3.us-east-2.amazonaws.com/happy-water-draw/IAPInfo.txt
+    versionIAP: 1
+    urlSocial: https://third-work.s3.us-east-2.amazonaws.com/happy-water-draw/SocialInfo.txt
+    versionSocial: 1
+    urlConfigSms: 
+  resolutionDevice: 0
+  versionText: {fileID: 5280241466087923357}
+  toastPopup: {fileID: 1029067914885030}
+  toastText: {fileID: 114852617219586466}
+  rateUsPanel: {fileID: 0}
+  ipComponent:
+    country: None
+    countryCode: 
+    city: 
+    lat: 
+    lon: 
+    deviceUniqueIdentifier: 
+    deviceModel: 
+--- !u!1 &1029067914885030
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224229092544701312}
+  - component: {fileID: 222221619394526898}
+  - component: {fileID: 114462469774574072}
+  m_Layer: 0
+  m_Name: ToastPopup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &224229092544701312
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029067914885030}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 224713998391326310}
+  m_Father: {fileID: 224485462375785780}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &222221619394526898
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029067914885030}
+  m_CullTransparentMesh: 0
+--- !u!114 &114462469774574072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029067914885030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7058824}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!1 &1064089183602120
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4499761659025540}
+  - component: {fileID: 114124766484210386}
+  m_Layer: 0
+  m_Name: AdsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4499761659025540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064089183602120}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4060422619386584}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114124766484210386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064089183602120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad67bd1846c406c4089a26506b1d7839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isAdColonyReady: 0
+  urlFileDataSetting: 
+  fileAdConfigDefault: {fileID: 0}
+  adConfigData:
+    isEnableAds: 1
+    adPosition: 1
+    rewardAdOrder: 02000000050000000600000001000000
+    interstitialAdsOrder: 0200000005000000
+    videoAdsOrder: 05000000
+    bannerAdsOrder: 02000000
+    adColonyConfigData:
+      _enableAd: 1
+      _androidInfos:
+      - _appName: 
+        _appId: 
+        _zones:
+        - _zoneName: 
+          _zoneId: 
+      _iosInfos:
+      - _appName: 
+        _appId: 
+        _zones:
+        - _zoneName: 
+          _zoneId: 
+    admobConfig:
+      _version: 
+      _isEnableAd: 1
+      _idDeviceTests: []
+      _androidAppInfos:
+      - _appName: _appName
+        _appId: ca-app-pub-3940256099942544~3347511713
+        _bannerName: _bannerName
+        _bannerId: ca-app-pub-3940256099942544/6300978111
+        _interstitialName: _interstitialName
+        _interstitialId: ca-app-pub-3940256099942544/1033173712
+        _interstitialVideoName: _interstitialVideoName
+        _interstitialVideoId: ca-app-pub-3940256099942544/8691691433
+        _rewardName: _rewardName
+        _rewardId: ca-app-pub-3940256099942544/5224354917
+        _nativeAdvancedName: _nativeAdvancedName
+        _nativeAdvancedId: ca-app-pub-3940256099942544/2247696110
+        _nativeAdvancedVideoName: _nativeAdvancedVideoName
+        _nativeAdvancedVideoId: ca-app-pub-3940256099942544/1044960115
+      _iosAppInfos:
+      - _appName: _appName
+        _appId: ca-app-pub-3940256099942544~3347511713
+        _bannerName: _bannerName
+        _bannerId: ca-app-pub-3940256099942544/6300978111
+        _interstitialName: _interstitialName
+        _interstitialId: ca-app-pub-3940256099942544/1033173712
+        _interstitialVideoName: _interstitialVideoName
+        _interstitialVideoId: ca-app-pub-3940256099942544/8691691433
+        _rewardName: _rewardName
+        _rewardId: ca-app-pub-3940256099942544/5224354917
+        _nativeAdvancedName: _nativeAdvancedName
+        _nativeAdvancedId: ca-app-pub-3940256099942544/2247696110
+        _nativeAdvancedVideoName: _nativeAdvancedVideoName
+        _nativeAdvancedVideoId: ca-app-pub-3940256099942544/1044960115
+      _forChild: 0
+    unityAdConfig:
+      enableAd: 1
+      testMode: 0
+      _androidAppInfos:
+      - _nameApp: 
+        _idApp: 
+        _idAd: 
+      _iosAppInfos:
+      - _nameApp: 
+        _idApp: 
+        _idAd: 
+    vungleConfig:
+      enableAd: 0
+      androidApps: []
+      iosApps: []
+      winphoneApps: []
+    facebookAdConfig:
+      enableAd: 0
+      androidBannerIds: []
+      androidInterstitialIds: []
+      iosBannerIds: []
+      iosInterstitialIds: []
+    chartboostConfigData:
+      _enableAd: 1
+    mopubConfigComponent:
+      _androidComponent:
+        _appName: _appName
+        _appId: _appId
+        _bannerName: _bannerName
+        _bannerId: _bannerId
+        _interstitialName: _interstitialName
+        _interstitialId: _interstitialId
+        _rewardName: _rewardName
+        _rewardId: _rewardId
+        _nativeAdvancedName: _nativeAdvancedName
+        _nativeAdvancedId: _nativeAdvancedId
+      _iosComponent:
+        _appName: _appName
+        _appId: _appId
+        _bannerName: _bannerName
+        _bannerId: _bannerId
+        _interstitialName: _interstitialName
+        _interstitialId: _interstitialId
+        _rewardName: _rewardName
+        _rewardId: _rewardId
+        _nativeAdvancedName: _nativeAdvancedName
+        _nativeAdvancedId: _nativeAdvancedId
+    timesEventShowInterstitial: 1
+    timeDalyShowInterstitial: 15
+    isShowBannerAd: 1
+  urlWebViewConfig: 
+  webViewConfigAsset: {fileID: 0}
+  webViewRequestData:
+    useRequestData: 1
+    webViewConfigData:
+      linkRequestAndroid: 
+      linkRequestIos: 
+      random: 10
+      username: 
+      idfa: 
+      activeAds: 0
+    devicename: 
+    width: 375
+    height: 667
+    timezone: -8
+    cname: 
+    ccountry: US
+    ccountrycode: 310
+    cnetworkcode: 300
+    language: en-US
+    region: en-US
+    platform: 1
+  textWebViewDataDefault: {fileID: 0}
+  webViewRowDatas: []
+  webViewScrollController: {fileID: 0}
+  bannerWebViewTF: {fileID: 0}
+  scaleBannerWebView: 0.75
+--- !u!1 &1162545536251996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224485462375785780}
+  - component: {fileID: 223385968085571658}
+  - component: {fileID: 3259664832759293886}
+  - component: {fileID: 4415122620577591842}
+  m_Layer: 0
+  m_Name: CanvasCoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &224485462375785780
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162545536251996}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 5256591905719201019}
+  - {fileID: 224229092544701312}
+  m_Father: {fileID: 4060422619386584}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!223 &223385968085571658
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162545536251996}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 100
+  m_TargetDisplay: 0
+--- !u!114 &3259664832759293886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162545536251996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 1280}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!114 &4415122620577591842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162545536251996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!1 &1162606211799522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4828751063068402}
+  - component: {fileID: 114967852408791576}
+  m_Layer: 0
+  m_Name: BuildManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4828751063068402
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162606211799522}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4060422619386584}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114967852408791576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162606211799522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c440d39cbb28f40d8a3dca17bf77231f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InfoBuilds:
+  - TypePlatform: 1
+    ProductName: Happy Water Draw Line
+    CompanyName: Young Stars
+    GameName: Happy Water Draw Line
+    BundleIdentifier: com.youngstars.flippybottlechallenge2017
+    Version: 1.2.0
+    BundleVersionCode: 25
+    scriptingImplementation: 0
+    minSdkVersion: 0
+    iOSSdkVersion: 988
+    androidBuildSystem: 1
+  - TypePlatform: 3
+    ProductName: Happy Water Draw Line
+    CompanyName: Young Stars
+    GameName: Happy Water Draw Line
+    BundleIdentifier: com.youngstars.happywater
+    Version: 1.1.1
+    BundleVersionCode: 10012
+    scriptingImplementation: 0
+    minSdkVersion: 16
+    iOSSdkVersion: 988
+    androidBuildSystem: 1
+  - TypePlatform: 4
+    ProductName: Happy Water Draw Line
+    CompanyName: Young Stars
+    GameName: Happy Water Draw Line
+    BundleIdentifier: com.youngstars.happywater
+    Version: 1.1.1
+    BundleVersionCode: 12
+    scriptingImplementation: 0
+    minSdkVersion: 16
+    iOSSdkVersion: 988
+    androidBuildSystem: 1
+--- !u!1 &1610283190344816
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4147983646811864}
+  - component: {fileID: 114738425667161146}
+  m_Layer: 0
+  m_Name: SocialManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4147983646811864
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610283190344816}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4060422619386584}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114738425667161146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1610283190344816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4396672e8d298b4caa0e964263a4c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  urlConfigSocial: 
+  textConfigDefault: {fileID: 4900000, guid: 7316249928493464e9e61c23207bccf7, type: 3}
+  socialSettingInfo:
+    _storeGameInfos:
+    - _storePublishType: 0
+      _nameStore: Apple Store
+      _urlGameOnStore: https://apps.apple.com/vn/app/happy-water-draw-line/id1274116624
+      _urlDeveloperOnStore: https://apps.apple.com/vn/developer/quang-vu-nguyen/id1445812030
+      _mailTo: 
+    - _storePublishType: 1
+      _nameStore: Google Play Store
+      _urlGameOnStore: 
+      _urlDeveloperOnStore: 
+      _mailTo: 
+    linkWebsite: 
+    googlePageLink: 
+    linkTwitter: 
+    linkImageShareFB: 
+    linkFacebookPage: 
+    facebookPermisions:
+    - public_profile
+    facebookQueryFields:
+    - id
+    - email
+    - name
+    - first_name
+    - last_name
+    widthAvatarFacebook: 64
+    heightAvatarFacebook: 64
+    isGetUserInfoFacebook: 1
+    hasInviteFriend: 0
+    versionGooglePlayServices: 
+    _isStartGameServicesWhenStart: 0
+    _enableLeaderBoard: 1
+    _enableAchievement: 1
+  facebookUserId: 
+--- !u!1 &1637814544523226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224713998391326310}
+  - component: {fileID: 222902610465402594}
+  - component: {fileID: 114852617219586466}
+  m_Layer: 0
+  m_Name: ToastText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &224713998391326310
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637814544523226}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224229092544701312}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -60, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &222902610465402594
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637814544523226}
+  m_CullTransparentMesh: 0
+--- !u!114 &114852617219586466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1637814544523226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 75
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'Message
+
+    Message'
+--- !u!1 &1759989421272874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4085125824298970}
+  - component: {fileID: 114865719022646472}
+  m_Layer: 0
+  m_Name: IAPManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4085125824298970
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759989421272874}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4060422619386584}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114865719022646472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759989421272874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26fa68f4a40cd004087cb80a78c868dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  urlConfigInApp: 
+  textConfigDefault: {fileID: 4900000, guid: 6d5bb394d3a87468d831d2c199647e9f, type: 3}
+  iapSettingInfo:
+    isTestIAP: 0
+    enableAndroid: 1
+    enableIos: 1
+    AndroidProductInfos:
+    - Id: com.youngstars.happywater.removeads
+      Name: Remove Ads
+      Description: 0.99$ for Remove Ads
+      Price: 0.99
+      Coin: 25
+      Discount: 0
+      typeCoinIcon: -1
+      InAppTag: 0
+      Type: 1
+      nonConsumableType: 1
+    IOSProductInfos:
+    - Id: com.youngstars.happywater.removeads
+      Name: Remove Ads
+      Description: 0.99$ for Remove Ads
+      Price: 0.99
+      Coin: 25
+      Discount: 0
+      typeCoinIcon: -1
+      InAppTag: 0
+      Type: 1
+      nonConsumableType: 1
+--- !u!1 &2118148331094503548
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2118148331094503539}
+  - component: {fileID: 2118148331094503538}
+  m_Layer: 0
+  m_Name: DataController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2118148331094503539
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118148331094503548}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4060422619386584}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2118148331094503538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118148331094503548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99bce14325a9b45c99f387143dff61ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coreDataInfo:
+    _isRemoveAds: 0
+    _isEnableSound: 1
+    _isEnableMusic: 1
+    _isEnableVibrate: 1
+  _cheatComponent:
+    _totalMoneyReward: 0
+    _totalMoneyUserReceive: 0
+    _countTotalGetReward: 0
+--- !u!1 &2123046166737138851
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5256591905719201019}
+  - component: {fileID: 2755110676981281217}
+  - component: {fileID: 5280241466087923357}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5256591905719201019
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123046166737138851}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 224485462375785780}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 45}
+  m_Pivot: {x: 1, y: 0}
+--- !u!222 &2755110676981281217
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123046166737138851}
+  m_CullTransparentMesh: 0
+--- !u!114 &5280241466087923357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2123046166737138851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 8
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: Version
+--- !u!1 &4958369604410425495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4958369604410425494}
+  - component: {fileID: 4958369604410425493}
+  m_Layer: 0
+  m_Name: AnalyticManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4958369604410425494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958369604410425495}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4060422619386584}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4958369604410425493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958369604410425495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5698b43d16c2da4ab0127503b5a1e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &8484069208352191154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8484069208352191157}
+  - component: {fileID: 8484069208352191156}
+  m_Layer: 0
+  m_Name: SaveLoadDataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8484069208352191157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484069208352191154}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4060422619386584}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8484069208352191156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484069208352191154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4f47583614d4ac5bbf19397646e77e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataController: {fileID: 2118148331094503538}
+--- !u!1 &8484069209932008939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8484069209932008938}
+  - component: {fileID: 8484069209932008941}
+  m_Layer: 0
+  m_Name: FirebaseManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8484069209932008938
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484069209932008939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4060422619386584}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8484069209932008941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8484069209932008939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbc5b6d8e9ca24f2386c2e2b54bbdcb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firebaseInfo:
+    _isEnableFirebase: 0
+    _urldatabase: 

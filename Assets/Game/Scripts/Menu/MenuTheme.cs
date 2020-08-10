@@ -3,15 +3,25 @@ using System.Collections;
 
 public class MenuTheme : MenuAbs<MenuTheme>
 {
-    // Use this for initialization
-    void Start()
-    {
+    [SerializeField]
+    private GameObject _curtainGO;
 
+    public Material[] _materialRope;
+
+    public override void Open()
+    {
+        _curtainGO.SetActive(true);
+        components.SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void HandleSelectMaterial_Click(int index)
     {
+        DMCGameUtilities.MaterialRopeCurrent = index;
+    }
 
+    public void HandleBtnClose_Click()
+    {
+        _curtainGO.SetActive(false);
+        components.SetActive(false);
     }
 }

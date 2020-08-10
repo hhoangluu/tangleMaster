@@ -5,6 +5,9 @@ using System.Collections.Generic;
 public class MenuMain : MenuAbs<MenuMain>
 {
     [SerializeField]
+    private Text _currentLevelText;
+
+    [SerializeField]
     private List<MenuComponent> _menuComponents;
 
     [SerializeField]
@@ -28,7 +31,19 @@ public class MenuMain : MenuAbs<MenuMain>
 
     private void Start()
     {
+        DMCGameUtilities.OnChangeCurrentLevel += DMCGameUtilities_OnChangeCurrentLevel;
+        DMCGameUtilities_OnChangeCurrentLevel(DMCGameUtilities.LevelCurrent);
         Open();
+    }
+
+    private void OnDestroy()
+    {
+        DMCGameUtilities.OnChangeCurrentLevel -= DMCGameUtilities_OnChangeCurrentLevel;
+    }
+
+    private void DMCGameUtilities_OnChangeCurrentLevel(int level)
+    {
+        _currentLevelText.text = "Level " + (level + 1);
     }
 
     public override void Open()
@@ -53,7 +68,7 @@ public class MenuMain : MenuAbs<MenuMain>
 
     public void OpenTheme()
     {
-
+        MenuTheme.instance.Open();
     }
 
     public void OpenChallenge()

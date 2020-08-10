@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 
 public interface IClickable
 {
@@ -17,6 +18,9 @@ public class GameController : FiveSingleton<GameController>
     private Ray _ray;
     private RaycastHit _hit;
 
+    [SerializeField]
+    private GameObject _confettiPrefab;
+
     private void Update()
     {
         if (isControllable)
@@ -30,5 +34,18 @@ public class GameController : FiveSingleton<GameController>
                 }
             }
         }
+    }
+
+    public void AddConfetti(Vector3 pos)
+    {
+        var confetti = GameObject.Instantiate(_confettiPrefab);
+        confetti.SetActive(true);
+        confetti.transform.localScale = Vector3.one * 2;
+        confetti.transform.position = pos;
+        confetti.GetComponent<ParticleSystem>().Play();
+        DOVirtual.DelayedCall(4.5f, delegate 
+        {
+            GameObject.DestroyImmediate(confetti);
+        });
     }
 }

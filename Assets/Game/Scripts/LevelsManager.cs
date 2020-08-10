@@ -36,17 +36,8 @@ public class ActorState
     public List<Vector3> angularVelocities = new List<Vector3>();
 }
 
-//asd
 public class LevelsManager : FiveSingleton<LevelsManager>
 {
-    public event Action CurLevelChanged = delegate { };
-    private const string KEY_LEVEL_CURRENT = "KEY_LEVEL_CURRENT";
-    public int curLevel
-    {
-        get => PlayerPrefs.GetInt(KEY_LEVEL_CURRENT, 0);
-        set { PlayerPrefs.SetInt(KEY_LEVEL_CURRENT, value); CurLevelChanged(); }
-    }
-
     private static string _saveLevelDirectory => "/Game/Resources/Levels/";
     private static string _levelExtension => ".json";
 
@@ -73,7 +64,7 @@ public class LevelsManager : FiveSingleton<LevelsManager>
     //        else
     //        {
     //            _maxLevel = _levelDirectory.Count();
-    //            FiveDebug.LogError("LevelsManager-MaxLevel: " + maxLevel);
+    //            Debug.Log("@LOG LevelsManager-MaxLevel: " + maxLevel);
     //            return;
     //        }
     //    }
@@ -100,7 +91,7 @@ public class LevelsManager : FiveSingleton<LevelsManager>
 
     private Level LoadSaveLevel(int level)
     {
-        FiveDebug.LogError("LevelsManager-LoadSaveLevel: " + (level + 1) + "/" + maxLevel);
+        Debug.Log("@LOG LevelsManager-LoadSaveLevel: " + (level + 1) + "/" + maxLevel);
         if (level >= maxLevel) return null;
 
         string path = "Levels/" + "Level" + level.ToString() + _levelExtension;
@@ -116,7 +107,7 @@ public class LevelsManager : FiveSingleton<LevelsManager>
     {
         string directory = Application.dataPath + _saveLevelDirectory;
 
-        FiveDebug.LogError("LevelsManager-SaveCurMeshState: " + directory);
+        Debug.Log("@LOG LevelsManager-SaveCurMeshState: " + directory);
 
         if (!Directory.Exists(directory))
             Directory.CreateDirectory(directory);
@@ -133,7 +124,7 @@ public class LevelsManager : FiveSingleton<LevelsManager>
         }
         string data = JsonUtility.ToJson(levelSave);
         string path = directory + "Level" + level.ToString() + _levelExtension;
-        FiveDebug.LogError("LevelsManager-SaveCurMeshState path: " + path);
+        Debug.Log("@LOG LevelsManager-SaveCurMeshState path: " + path);
         File.WriteAllText(path, data);
     }
 

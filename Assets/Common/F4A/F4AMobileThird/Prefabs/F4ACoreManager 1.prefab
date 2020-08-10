@@ -1,0 +1,872 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &198947047
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 198947048}
+  - component: {fileID: 198947049}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &198947048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198947047}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4094889011008062984}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &198947049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 198947047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 768e56f04d0fb446c9a3a749329309fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _coreDataInfo:
+    _isRemoveAds: 0
+    _isEnableSound: 1
+    _isEnableMusic: 1
+    _isEnableVibrate: 1
+--- !u!1 &610544275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 610544276}
+  - component: {fileID: 610544277}
+  m_Layer: 0
+  m_Name: SaveLoadDataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &610544276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610544275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4094889011008062984}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &610544277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610544275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4f47583614d4ac5bbf19397646e77e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dataController: {fileID: 198947049}
+--- !u!1 &330104116810460805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4094889011008062984}
+  - component: {fileID: 4458710189558006260}
+  m_Layer: 0
+  m_Name: F4ACoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4094889011008062984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330104116810460805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 473037058877631285}
+  - {fileID: 1154730398255068537}
+  - {fileID: 9003808271298447103}
+  - {fileID: 7186214842047353953}
+  - {fileID: 9199560935545553341}
+  - {fileID: 610544276}
+  - {fileID: 198947048}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4458710189558006260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330104116810460805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2ce0888bee34b51a7a13407f6eb206, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defineIAP: 1
+  defineAdMob: 1
+  defineUnityAds: 1
+  defineVungle: 0
+  defineChartboost: 0
+  defineFacebookSDK: 1
+  defineGameServices: 1
+  defineShephertz: 0
+  defineFirebaseAnalytic: 1
+  defineFirebaseCrashlytic: 1
+  isOnline: 1
+  _isRunInBackground: 1
+  urlConfig: https://docs.google.com/uc?export=download&id=1Zt3K_ecXcWlrjvPlIgyxZsu68Y1L4pu0
+  textConfigDefault: {fileID: 4900000, guid: 1ccab90d2eab14de789cb0e65d53f1ab, type: 3}
+  configData:
+    IsDebug: 1
+    TargetFrameRate: 60
+    IsShowTextVersion: 0
+    IsNeverSleep: 1
+    idOrNameApp: com.genmob.stickman
+    urlAssetBundle: 
+    urlConfigAds: https://docs.google.com/uc?export=download&id=1nIAheybN92NSkYDJDdoycUfjUHNTNoP1
+    urlConfigWebView: 
+    urlInAppPurchase: https://docs.google.com/uc?export=download&id=17B7tqfbwZcqFk7iRxbkdT9app_NbQA7w
+    urlSocial: https://docs.google.com/uc?export=download&id=1PDnov8_N5_OpGRJvOOi2utMTLlCQs6p5
+    urlConfigSms: 
+  resolutionDevice: 0
+  versionText: {fileID: 4393921545118418620}
+  toastPopup: {fileID: 6569280420229984144}
+  toastText: {fileID: 8437721136826940608}
+  rateUsPanel: {fileID: 0}
+--- !u!1 &514510805143943225
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9003808271298447103}
+  - component: {fileID: 4362448211318756752}
+  m_Layer: 0
+  m_Name: BuildManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9003808271298447103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514510805143943225}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4094889011008062984}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4362448211318756752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 514510805143943225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c440d39cbb28f40d8a3dca17bf77231f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InfoBuilds:
+  - TypePlatform: 1
+    ProductName: Just Get Sudoku
+    CompanyName: Young Stars
+    GameName: Just Get Sudoku
+    BundleIdentifier: 'com.youngstars.runtheline '
+    Version: 1.0.0
+    BundleVersionCode: 1
+    scriptingImplementation: 1
+    minSdkVersion: 0
+    iOSSdkVersion: 988
+    androidBuildSystem: 1
+--- !u!1 &1242585056701378656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7186214842047353953}
+  - component: {fileID: 9106473198927165820}
+  m_Layer: 0
+  m_Name: IAPManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7186214842047353953
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242585056701378656}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4094889011008062984}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9106473198927165820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242585056701378656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26fa68f4a40cd004087cb80a78c868dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  urlConfigInApp: https://docs.google.com/uc?export=download&id=1PDnov8_N5_OpGRJvOOi2utMTLlCQs6p5
+  textConfigDefault: {fileID: 4900000, guid: 6d5bb394d3a87468d831d2c199647e9f, type: 3}
+  iapSettingInfo:
+    enableAndroid: 1
+    enableIos: 1
+    AndroidProductInfos:
+    - Id: com.youngstars.justgetsudoku.removeads
+      Name: Remove Ads
+      Description: Remove Ads
+      Price: 0.99
+      Coin: 25
+      Discount: 0
+      typeCoinIcon: -1
+      InAppTag: 0
+      Type: 1
+      nonConsumableType: 1
+    IOSProductInfos:
+    - Id: com.youngstars.justgetsudoku.removeads
+      Name: Remove Ads
+      Description: Remove Ads
+      Price: 0.99
+      Coin: 25
+      Discount: 0
+      typeCoinIcon: -1
+      InAppTag: 0
+      Type: 1
+      nonConsumableType: 1
+--- !u!1 &3677994969098809894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7814771805911280772}
+  - component: {fileID: 8186646553930648701}
+  - component: {fileID: 8437721136826940608}
+  m_Layer: 0
+  m_Name: ToastText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7814771805911280772
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677994969098809894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8892979556846424573}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -60, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &8186646553930648701
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677994969098809894}
+  m_CullTransparentMesh: 0
+--- !u!114 &8437721136826940608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677994969098809894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 40
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 75
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: 'Message
+
+    Message'
+--- !u!1 &6045187556492504519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1154730398255068537}
+  - component: {fileID: 3087041777940530796}
+  m_Layer: 0
+  m_Name: SocialManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1154730398255068537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6045187556492504519}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4094889011008062984}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3087041777940530796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6045187556492504519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4396672e8d298b4caa0e964263a4c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOnline: 1
+  urlConfigSocial: https://docs.google.com/uc?export=download&id=1PDnov8_N5_OpGRJvOOi2utMTLlCQs6p5
+  textConfigDefault: {fileID: 4900000, guid: 7316249928493464e9e61c23207bccf7, type: 3}
+  socialSettingInfo:
+    _storeGameInfos:
+    - _storePublishType: 0
+      _nameStore: Apple Store
+      _urlGameOnStore: 
+      _urlDeveloperOnStore: 
+      _mailTo: 
+    - _storePublishType: 1
+      _nameStore: Google Play Store
+      _urlGameOnStore: https://play.google.com/store/apps/details?id=com.genmob.stickman.kungfuz
+      _urlDeveloperOnStore: https://play.google.com/store/apps/dev?id=5268147193844452715
+      _mailTo: 
+    emailContact: email@gmail.com
+    linkWebsite: 
+    googlePageLink: 
+    linkTwitter: 
+    enableFacebookSdk: 0
+    linkImageShareFB: 
+    linkFacebookPage: 
+    facebookPermisions:
+    - public_profile
+    - email
+    - user_friends
+    - public_profile
+    facebookQueryFields:
+    - id
+    - email
+    - name
+    - first_name
+    - last_name
+    isGetUserInfoFacebook: 1
+    hasInviteFriend: 0
+    versionGooglePlayServices: 
+    _isStartGameServicesWhenStart: 0
+    _enableLeaderBoard: 1
+    _enableAchievement: 1
+  facebookUserId: 
+--- !u!1 &6569280420229984144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8892979556846424573}
+  - component: {fileID: 3832128360639532394}
+  - component: {fileID: 8029975821127105500}
+  m_Layer: 0
+  m_Name: ToastPopup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &8892979556846424573
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6569280420229984144}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7814771805911280772}
+  m_Father: {fileID: 9199560935545553341}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 150}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &3832128360639532394
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6569280420229984144}
+  m_CullTransparentMesh: 0
+--- !u!114 &8029975821127105500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6569280420229984144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7058824}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!1 &7287953885232709611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9199560935545553341}
+  - component: {fileID: 3547274946397951087}
+  - component: {fileID: 6377607364580622239}
+  - component: {fileID: 5258195966097156611}
+  m_Layer: 0
+  m_Name: CanvasCoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9199560935545553341
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7287953885232709611}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4417571099107882202}
+  - {fileID: 8892979556846424573}
+  m_Father: {fileID: 4094889011008062984}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!223 &3547274946397951087
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7287953885232709611}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 100
+  m_TargetDisplay: 0
+--- !u!114 &6377607364580622239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7287953885232709611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 1280}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+--- !u!114 &5258195966097156611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7287953885232709611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1301386320, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!1 &7551380727255952514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4417571099107882202}
+  - component: {fileID: 6017206502397815264}
+  - component: {fileID: 4393921545118418620}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4417571099107882202
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7551380727255952514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9199560935545553341}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 160, y: 45}
+  m_Pivot: {x: 1, y: 0}
+--- !u!222 &6017206502397815264
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7551380727255952514}
+  m_CullTransparentMesh: 0
+--- !u!114 &4393921545118418620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7551380727255952514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 25
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 8
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: Version
+--- !u!1 &7660467519477743832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 473037058877631285}
+  - component: {fileID: 8229596455819795841}
+  m_Layer: 0
+  m_Name: AdsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &473037058877631285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7660467519477743832}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4094889011008062984}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8229596455819795841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7660467519477743832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad67bd1846c406c4089a26506b1d7839, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  urlFileDataSetting: https://docs.google.com/uc?export=download&id=1nIAheybN92NSkYDJDdoycUfjUHNTNoP1
+  fileAdConfigDefault: {fileID: 4900000, guid: a861eda35dbca4bc1b35aafce523bfd5, type: 3}
+  adConfigData:
+    isEnableAds: 1
+    adPosition: 1
+    rewardAdOrder: 050000000200000006000000
+    interstitialAdsOrder: 020000000500000003000000
+    videoAdsOrder: 0500000002000000
+    bannerAdsOrder: 0200000005000000
+    admobConfig:
+      enableAd: 1
+      idDeviceTests: []
+      versionAdmob: 3.18
+      _androidAppInfos:
+      - _appName: Garden Mania 2 Free | Android
+        _appId: ca-app-pub-9655538822838046~5562445260
+        _bannerName: Banner Word Story
+        _bannerId: ca-app-pub-9655538822838046/7071644071
+        _interstitialName: Interstitial Word Story
+        _interstitialId: ca-app-pub-9655538822838046/6085865461
+        _rewardName: Rewarded Word Story
+        _rewardId: ca-app-pub-9655538822838046/1819317393
+      - _appName: Garden Mania 3 Free | Android
+        _appId: ca-app-pub-9655538822838046~5562445260
+        _bannerName: Banner Word Story
+        _bannerId: ca-app-pub-9655538822838046/1738414582
+        _interstitialName: Interstitial Word Story
+        _interstitialId: ca-app-pub-9655538822838046/7889901723
+        _rewardName: Rewarded Word Story
+        _rewardId: ca-app-pub-9655538822838046/8143330394
+      - _appName: Ice Crush Free | Android
+        _appId: ca-app-pub-9655538822838046~5562445260
+        _bannerName: Banner Word Story
+        _bannerId: ca-app-pub-9655538822838046/4992275648
+        _interstitialName: Interstitial Word Story
+        _interstitialId: ca-app-pub-9655538822838046/8662205144
+        _rewardName: Rewarded Word Story
+        _rewardId: ca-app-pub-9655538822838046/2366112303
+      _iosAppInfos:
+      - _appName: Garden Mania 2 Free | Android
+        _appId: ca-app-pub-9655538822838046~5562445260
+        _bannerName: Banner Word Story
+        _bannerId: ca-app-pub-9655538822838046/7071644071
+        _interstitialName: Interstitial Word Story
+        _interstitialId: ca-app-pub-9655538822838046/6085865461
+        _rewardName: Rewarded Word Story
+        _rewardId: ca-app-pub-9655538822838046/1819317393
+      - _appName: Garden Mania 3 Free | Android
+        _appId: ca-app-pub-9655538822838046~5562445260
+        _bannerName: Banner Word Story
+        _bannerId: ca-app-pub-9655538822838046/1738414582
+        _interstitialName: Interstitial Word Story
+        _interstitialId: ca-app-pub-9655538822838046/7889901723
+        _rewardName: Rewarded Word Story
+        _rewardId: ca-app-pub-9655538822838046/8143330394
+      - _appName: Ice Crush Free | Android
+        _appId: ca-app-pub-9655538822838046~5562445260
+        _bannerName: Banner Word Story
+        _bannerId: ca-app-pub-9655538822838046/4992275648
+        _interstitialName: Interstitial Word Story
+        _interstitialId: ca-app-pub-9655538822838046/8662205144
+        _rewardName: Rewarded Word Story
+        _rewardId: ca-app-pub-9655538822838046/2366112303
+    unityAdConfig:
+      enableAd: 1
+      _androidAppInfos:
+      - _nameApp: Puzzle Magic Mania
+        _idApp: c4eb7d1f-d0c6-421c-a77c-a156c1c34a20
+        _idAd: 1612217
+      - _nameApp: Toy Mania Blast Legend
+        _idApp: 16577880-732a-4cb0-a010-d0ded2d6b150
+        _idAd: 1771284
+      _iosdAppInfos: []
+    vungleConfig:
+      enableAd: 0
+      androidIds: []
+      iosIds: []
+      winphoneIds: []
+    facebookAdConfig:
+      enableAd: 0
+      androidBannerIds: []
+      androidInterstitialIds: []
+      iosBannerIds: []
+      iosInterstitialIds: []
+    timesEventShowInterstitial: 2
+    isShowBannerAd: 0
+  urlWebViewConfig: 
+  webViewConfigAsset: {fileID: 0}
+  webViewRequestData:
+    useRequestData: 1
+    webViewConfigData:
+      linkRequestAndroid: 
+      linkRequestIos: 
+      random: 10
+      username: 
+      idfa: 
+      activeAds: 0
+    devicename: 
+    width: 375
+    height: 667
+    timezone: -8
+    cname: 
+    ccountry: US
+    ccountrycode: 310
+    cnetworkcode: 300
+    language: en-US
+    region: en-US
+    platform: 1
+  textWebViewDataDefault: {fileID: 0}
+  webViewRowDatas: []
+  webViewScrollController: {fileID: 0}
+  bannerWebViewTF: {fileID: 0}
+  scaleBannerWebView: 0.75

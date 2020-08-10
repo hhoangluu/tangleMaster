@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using DG.Tweening;
+using UnityEditor.VersionControl;
 
 public class MenuWellDone : MenuAbs<MenuWellDone>
 {
@@ -25,12 +27,31 @@ public class MenuWellDone : MenuAbs<MenuWellDone>
     private float _menuSpeed = 0.5f;
     private Coroutine _bgCorou;
 
+    [SerializeField]
+    private GameObject _loadingx3RewardGO;
+
+    private void Start()
+    {
+        DOVirtual.DelayedCall(2, () => 
+        {
+            _loadingx3RewardGO.SetActive(!PluginManager.instance.IsRewardAdsReady());
+        });
+    }
+
     public override void Open()
     {
         _isOpened = true;
         ColorLerp(ref _bgCorou, _bg, _bg.color, new Color(_bg.color.r, _bg.color.g, _bg.color.b, 0.5f), _menuSpeed, onStart: () => _bg.gameObject.SetActive(true));
         _menuComponents.ForEach(mC => mC.Open(_menuSpeed));
         components.SetActive(true);
+
+        int coin3 = GameConfigManager.instance.CoinReceiveWatchVideoDoneLevel * DMCGameUtilities.LevelCurrent;
+        if (coin3 > 300) coin3 = 300;
+        rewardX3Amount.text = coin3.ToString();
+
+        int coin = GameConfigManager.instance.CoinReceiveWhenDoneLevel * DMCGameUtilities.LevelCurrent;
+        if (coin > 100) coin = 100;
+        rewardAmount.text = coin.ToString();
     }
 
     public override void Close()
@@ -44,12 +65,33 @@ public class MenuWellDone : MenuAbs<MenuWellDone>
 
     public void GetX3Reward()
     {
-        TangleMasterGame.instance.LoadNextLevel();
-        Close();
+        //TangleMasterGame.instance.LoadNextLevel();
+        //Close();
+
+        if (!PluginManager.instance.IsRewardAdsReady()) return;
+
+        PluginManager.instance.ShowRewardAds(delegate
+        {
+            int coin3 = GameConfigManager.instance.CoinReceiveWatchVideoDoneLevel * DMCGameUtilities.LevelCurrent;
+            if (coin3 > 300) coin3 = 300;
+            DMCGameUtilities.CoinGame += coin3;
+            TangleMasterGame.instance.LoadNextLevel();
+            Close();
+        }, delegate
+        {
+            int coin = GameConfigManager.instance.CoinReceiveWhenDoneLevel * DMCGameUtilities.LevelCurrent;
+            if (coin > 100) coin = 100;
+            DMCGameUtilities.CoinGame += coin;
+            TangleMasterGame.instance.LoadNextLevel();
+            Close();
+        });
     }
 
     public void GetReward()
     {
+        int coin = GameConfigManager.instance.CoinReceiveWhenDoneLevel * DMCGameUtilities.LevelCurrent;
+        if (coin > 100) coin = 100;
+        DMCGameUtilities.CoinGame += 100;
         TangleMasterGame.instance.LoadNextLevel();
         Close();
     }
