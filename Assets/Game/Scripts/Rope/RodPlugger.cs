@@ -3,8 +3,8 @@
 public class RodPlugger : MonoBehaviour, IClickable
 {
     [SerializeField]
-    private Rod _rodHost;
-    public Rod rodHost => _rodHost;
+    private Rope _rodHost;
+    public Rope rodHost => _rodHost;
 
     public void OnClicked()
     {

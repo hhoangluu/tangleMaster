@@ -2,7 +2,6 @@
 using UnityEngine.UI;
 using System.Collections.Generic;
 using DG.Tweening;
-using UnityEditor.VersionControl;
 
 public class MenuWellDone : MenuAbs<MenuWellDone>
 {

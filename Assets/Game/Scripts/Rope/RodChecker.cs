@@ -3,6 +3,7 @@ using Unity.Profiling;
 using System.Collections.Generic;
 using Obi;
 using Five.String;
+using System.Collections;
 
 [RequireComponent(typeof(ObiActor))]
 public class RodChecker : MonoBehaviour
@@ -10,7 +11,7 @@ public class RodChecker : MonoBehaviour
     [SerializeField]
     private GameObject _box2DCheckPrefab;
     [SerializeField]
-    private Rod _hostRod;
+    private Rope _hostRod;
 
     private static ProfilerMarker m_DrawParticlesPerfMarker = new ProfilerMarker("DrawParticles");
 
@@ -23,6 +24,8 @@ public class RodChecker : MonoBehaviour
     private ParticleImpostorRendering impostors;
 
     public IEnumerable<Mesh> ParticleMeshes => impostors.Meshes;
+
+    private Mesh particleMesh;
 
     public List<Mesh> listMeshes
     {
@@ -52,6 +55,8 @@ public class RodChecker : MonoBehaviour
     {
         if (!_meshRenderer) _meshRenderer = GetComponent<MeshRenderer>();
         DMCGameUtilities_OnChangeMaterialRope(DMCGameUtilities.MaterialRopeCurrent);
+        CreateListCheckBoxCollider();
+        StartCoroutine(UpdateColliderPosition());
     }
 
     public void OnEnable()
@@ -59,6 +64,7 @@ public class RodChecker : MonoBehaviour
         impostors = new ParticleImpostorRendering();
         GetComponent<ObiActor>().OnInterpolate += DrawParticles;
         DMCGameUtilities.OnChangeMaterialRope += DMCGameUtilities_OnChangeMaterialRope;
+
     }
 
     public void OnDisable()
@@ -129,43 +135,132 @@ public class RodChecker : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void CreateListCheckBoxCollider()
     {
-        //if (!TangleMasterGame.instance.isPlayable) return;
-        foreach (Mesh mesh in ParticleMeshes)
+        for (int i = 0; i < _hostRod.obiRope.activeParticleCount; i++)
         {
-            count = 0;
-            _rodCheckBoxCollider2DListCount = _rodCheckBoxCollider2DList.Count;
-            for (int i = 0; i < mesh.vertices.Length; i += 4)
-            {
-                if (count < _rodCheckBoxCollider2DListCount)
-                {
-                    _rodCheckBoxCollider2DList[count].transform.position = new Vector3(mesh.vertices[i].x, mesh.vertices[i].y, 5f);
-                }
-                else
-                {
-                    CreateBoxCollider2D().transform.position = new Vector3(mesh.vertices[i].x, mesh.vertices[i].y, 5f);
-                }
-                count += 1;
-            }
+            Debug.Log("create particle colider");
 
-            if (count < _rodCheckBoxCollider2DListCount)
+            CreateBoxCollider2D().transform.position = _hostRod.obiRope.GetParticlePosition(i) + new Vector3(0, 0, 5);
+        }
+    }
+
+    IEnumerator UpdateColliderPosition()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+
+            foreach (Mesh mesh in ParticleMeshes)
             {
-                for (int i = count; i < _rodCheckBoxCollider2DListCount; i++)
+                Debug.Log("CAI nay lag lam");
+                count = 0;
+                _rodCheckBoxCollider2DListCount = _rodCheckBoxCollider2DList.Count;
+                for (int i = 0; i < mesh.vertices.Length; i += 4)
                 {
-                    _rodCheckBoxCollider2DList[i].gameObject.SetActive(false);
+                    Debug.Log("CAI nay lag hon lam" + gameObject.GetInstanceID());
+
+                    if (count < _rodCheckBoxCollider2DListCount)
+                    {
+                        Debug.Log("in if" + gameObject.GetInstanceID());
+
+                        _rodCheckBoxCollider2DList[count].transform.position = new Vector3(mesh.vertices[i].x, mesh.vertices[i].y, 5f);
+                    }
+                    else
+                    {
+                        CreateBoxCollider2D().transform.position = new Vector3(mesh.vertices[i].x, mesh.vertices[i].y, 5f);
+                    }
+                    count += 1;
+                }
+            }
+            if (!isCheckFree) continue;
+            if (!_hostRod.isPluggerBusy && !_hostRod.isFree && _hostRod.curRodState != RopeState.unplugged)
+            {
+                if (CheckFree())
+                {
+                    _hostRod.IsFree();
+                    break;
                 }
             }
         }
     }
 
+    private void Update()
+    {
+        for (int i = 0; i < _rodCheckBoxCollider2DList.Count; i++)
+        {
+
+            //_rodCheckBoxCollider2DList[count].transform.position = _hostRod.obiRod.GetParticlePosition(i) + new Vector3(0,0,5);
+        }
+        
+    }
+    //private void FixedUpdate()
+    //{
+    //    Debug.Log("CAI nay o ngoai" + _hostRod.obiRod.activeParticleCount);
+
+    //    //if (!TangleMasterGame.instance.isPlayable) return;
+    //    foreach (Mesh mesh in ParticleMeshes)
+    //    {
+    //        Debug.Log("CAI nay lag lam");
+    //        count = 0;
+    //        _rodCheckBoxCollider2DListCount = _rodCheckBoxCollider2DList.Count;
+    //        for (int i = 0; i < mesh.vertices.Length; i += 4)
+    //        {
+    //            Debug.Log("CAI nay lag hon lam" + gameObject.GetInstanceID());
+
+    //            if (count < _rodCheckBoxCollider2DListCount)
+    //            {
+    //                Debug.Log("in if" + gameObject.GetInstanceID());
+
+    //                _rodCheckBoxCollider2DList[count].transform.position = new Vector3(mesh.vertices[i].x, mesh.vertices[i].y, 5f);
+    //            }
+    //            else
+    //            {
+    //                CreateBoxCollider2D().transform.position = new Vector3(mesh.vertices[i].x, mesh.vertices[i].y, 5f);
+    //            }
+    //            count += 1;
+    //        }
+
+    //        if (count < _rodCheckBoxCollider2DListCount)
+    //        {
+    //            for (int i = count; i < _rodCheckBoxCollider2DListCount; i++)
+    //            {
+    //                _rodCheckBoxCollider2DList[i].gameObject.SetActive(false);
+    //            }
+    //        }
+    //    }
+    //}
+    //private void FixedUpdate()
+    //{
+    //    Debug.Log("CAI nay o ngoai");
+
+    //    //if (!TangleMasterGame.instance.isPlayable) return;
+    //    foreach (Mesh mesh in ParticleMeshes)
+    //    {
+    //        Debug.Log("CAI nay lag lam");
+    //        count = 0;
+    //        _rodCheckBoxCollider2DListCount = _rodCheckBoxCollider2DList.Count;
+    //        //  for (int i = 0; i < mesh.vertices.Length; i += 4)
+    //        {
+    //            Debug.Log("CAI nay lag hon lam" + gameObject.GetInstanceID());
+
+
+    //                CreateBoxCollider2D().transform.position = new Vector3(mesh.vertices[0].x, mesh.vertices[0].y, 5f);
+
+    //        }
+
+    //        //if (count < _rodCheckBoxCollider2DListCount)
+    //        //{
+    //        //    for (int i = count; i < _rodCheckBoxCollider2DListCount; i++)
+    //        //    {
+    //        //        _rodCheckBoxCollider2DList[i].gameObject.SetActive(false);
+    //        //    }
+    //        //}
+    //    }
+    //}
     private void LateUpdate()
     {
-        if (!isCheckFree) return;
-        if (!_hostRod.isPluggerBusy && !_hostRod.isFree && _hostRod.curRodState != RodState.unplugged)
-        {
-            if (CheckFree()) _hostRod.IsFree();
-        }
+      
     }
 
     private bool CheckFree()
@@ -186,7 +281,7 @@ public class RodChecker : MonoBehaviour
                 }
             }
         }
-        //FiveDebug.Log(_hostRod.name + " - Free!");
+        FiveDebug.Log(_hostRod.name + " - Free!");
         return true;
     }
 

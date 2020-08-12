@@ -65,6 +65,11 @@ public class Rod : MonoBehaviour
 
     private Coroutine _freeCorou;
 
+    private void OnEnable()
+    {
+        
+    }
+
     public void SetPluggedAbs()
     {
         rodPlugger.transform.position = curPlugPlace.pluggedPlace.position;
@@ -92,6 +97,7 @@ public class Rod : MonoBehaviour
     public void SetUnPlugged()
     {
         if (_ropePluggerCorou != null) StopCoroutine(_ropePluggerCorou);
+        Debug.Log("rodPlugger " + rodPlugger + "curPlugPlace.unplugPlace" + curPlugPlace.unplugPlace + " curPlugPlace " + curPlugPlace);
         _ropePluggerCorou = StartCoroutine(LerpTo(rodPlugger.transform, curPlugPlace.unplugPlace.position, 0.25f,
             onStart: () =>
             {
@@ -117,7 +123,7 @@ public class Rod : MonoBehaviour
 
     public void IsFree()
     {
-        TangleMasterGame.instance.IsFree(this);
+      //  TangleMasterGame.instance.IsFree(this);
     }
 
     public void SetFree(Action onDone)

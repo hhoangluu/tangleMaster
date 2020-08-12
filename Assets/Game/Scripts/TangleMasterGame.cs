@@ -7,7 +7,7 @@ using Five.String;
 
 public class TangleMasterGame : FiveSingleton<TangleMasterGame>
 {
-    public static RodsManager rodsManager => RodsManager.instance;
+    public static RopeManager ropeManager => RopeManager.instance;
 
     public static PlugPlacesManager plugPlacesManager => PlugPlacesManager.instance;
 
@@ -30,15 +30,15 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
 
     private void Start()
     {
-        //for (int i = 0; i < rodsManager.rods.Count; i++)
-        //{
-        //    rodsManager.rods[i].curPlugPlace = plugPlacesManager.plugPlaces[i];
-        //    plugPlacesManager.plugPlaces[i].curRodPlugger = rodsManager.rods[i].rodPlugger;
+        for (int i = 0; i < ropeManager.rods.Count; i++)
+        {
+            ropeManager.rods[i].curPlugPlace = plugPlacesManager.plugPlaces[i];
+            plugPlacesManager.plugPlaces[i].curRodPlugger = ropeManager.rods[i].rodPlugger;
 
-        //    rodsManager.rods[i].SetPlugged();
-        //}
+            ropeManager.rods[i].SetPlugged();
+        }
 
-        LevelsManager.instance.LoadLevel(DMCGameUtilities.LevelCurrent);
+        //  LevelsManager.instance.LoadLevel(DMCGameUtilities.LevelCurrent);
     }
 
     private IEnumerator DelayDo(float delay, Action toDo)
@@ -83,10 +83,10 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
 
     public void OnRodPluggerClicked(RodPlugger rodPlugger)
     {
-        FiveDebug.Log("OnRodPluggerClicked: " + rodPlugger.name);
+        Debug.Log("OnRodPluggerClicked: " + rodPlugger.name);
         switch (rodPlugger.rodHost.curRodState)
         {
-            case RodState.plugged:
+            case RopeState.plugged:
                 if (_activeRodPlugger == null)
                 {
                     if (!rodPlugger.rodHost.isFree)
@@ -96,7 +96,7 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
                     }
                 }
                 break;
-            case RodState.unplugged:
+            case RopeState.unplugged:
                 if (rodPlugger == _activeRodPlugger)
                 {
                     if (!rodPlugger.rodHost.isFree)
@@ -109,13 +109,26 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
         }
     }
 
-    public void IsFree(Rod rod)
+    //public void IsFree(Rod rod)
+    //{
+    //    _totalFree += 1;
+    //    Debug.Log("@LOG IsFree: " + _totalFree + "/" + rodsManager.rods.Count);
+    //    rod.SetFree(onDone: () => _totalFreeDone += 1);
+
+    //    if (_totalFree == rodsManager.rods.Count)
+    //    {
+    //        if (_corou != null) StopCoroutine(_corou);
+    //        _corou = StartCoroutine(ShowWellDone());
+    //    }
+    //}
+
+    public void IsFree(Rope rod)
     {
         _totalFree += 1;
-        Debug.Log("@LOG IsFree: " + _totalFree + "/" + rodsManager.rods.Count);
+        Debug.Log("@LOG IsFree: " + _totalFree + "/" + ropeManager.rods.Count);
         rod.SetFree(onDone: () => _totalFreeDone += 1);
 
-        if (_totalFree == rodsManager.rods.Count)
+        if (_totalFree == ropeManager.rods.Count)
         {
             if (_corou != null) StopCoroutine(_corou);
             _corou = StartCoroutine(ShowWellDone());
@@ -125,7 +138,7 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
     private IEnumerator ShowWellDone()
     {
         Debug.Log("@LOG LoadNextLevel");
-        while (_totalFreeDone < rodsManager.rods.Count)
+        while (_totalFreeDone < ropeManager.rods.Count)
             yield return GameManager.WaitForEndOfFrame;
         yield return new WaitForSeconds(1f);
 
@@ -166,6 +179,7 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
     {
         _isPlayable = true;
         gameController.isControllable = true;
-        rodsManager.rods.ForEach(r => r.rodChecker.isCheckFree = true);
+        ropeManager.rods.ForEach(r => r.rodChecker.isCheckFree = true);
+        Application.targetFrameRate = 60;
     }
 }

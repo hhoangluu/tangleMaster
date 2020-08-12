@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee7737c43f5734f87be9e49d1bbfba78, type: 3}
-  m_Name: DefaultRopeSection
+  m_Name: DefaultRopeSection 1
   m_EditorClassIdentifier: 
   vertices:
   - {x: 1, y: 0}
