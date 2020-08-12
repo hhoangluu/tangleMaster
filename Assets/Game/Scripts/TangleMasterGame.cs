@@ -30,15 +30,15 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
 
     private void Start()
     {
-        for (int i = 0; i < ropeManager.rods.Count; i++)
-        {
-            ropeManager.rods[i].curPlugPlace = plugPlacesManager.plugPlaces[i];
-            plugPlacesManager.plugPlaces[i].curRodPlugger = ropeManager.rods[i].rodPlugger;
+        //for (int i = 0; i < ropeManager.rods.Count; i++)
+        //{
+        //    ropeManager.rods[i].curPlugPlace = plugPlacesManager.plugPlaces[i];
+        //    plugPlacesManager.plugPlaces[i].curRodPlugger = ropeManager.rods[i].rodPlugger;
 
-            ropeManager.rods[i].SetPlugged();
-        }
+        //    ropeManager.rods[i].SetPlugged();
+        //}
 
-        //  LevelsManager.instance.LoadLevel(DMCGameUtilities.LevelCurrent);
+         LevelsManager.instance.LoadLevel(DMCGameUtilities.LevelCurrent);
     }
 
     private IEnumerator DelayDo(float delay, Action toDo)

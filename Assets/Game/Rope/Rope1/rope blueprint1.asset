@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775ad4994fda946d1a5936c7e2dfc785, type: 3}
   m_Name: end 2
   m_EditorClassIdentifier: 
-  particleIndices: 02000000
+  particleIndices: 01000000
   m_Blueprint: {fileID: 11400000}
 --- !u!114 &-2401262566990999412
 MonoBehaviour:
