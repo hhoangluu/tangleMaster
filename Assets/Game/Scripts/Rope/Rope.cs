@@ -62,6 +62,10 @@ public class Rope : MonoBehaviour
     private bool _isFree;
     public bool isFree => _isFree;
 
+    [SerializeField] private RopeLengthController ropeLengthController;
+    [SerializeField] private ParticleSystem tangleParticleEffectKnut;
+    [SerializeField] private ParticleSystem tangleParticleEffectPlugger;
+
     private Coroutine _freeCorou;
 
     public void SetPluggedAbs()
@@ -134,13 +138,14 @@ public class Rope : MonoBehaviour
         Debug.Log("@LOG SetFreeIE");
         //_ropParent.DOScaleY(0, 0.9f);
         GameController.instance.AddConfetti(transform.position + new Vector3(0, 1.8f, 0));
-        _ropePluggerCorou = StartCoroutine(DelayDoIE(1f, () =>
-        {
+        ropeLengthController.ShortenRope();
+        yield return new WaitWhile(() => obiRope.restLength > 0);
+        
             _curPlugPlace.SetUnPlugged();
             _curPlugPlace.curRodPlugger = null;
             gameObject.SetActive(false);
             onDone?.Invoke();
-        }));
+       
     }
 
     private IEnumerator LerpTo(Transform tarTF, Vector3 tarPos, float inTime, Action onStart, Action onDone = null)
