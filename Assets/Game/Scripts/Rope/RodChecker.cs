@@ -11,7 +11,7 @@ public class RodChecker : MonoBehaviour
     [SerializeField]
     private GameObject _box2DCheckPrefab;
     [SerializeField]
-    private Rope _hostRod;
+    private Rope _hostRope;
 
     private static ProfilerMarker m_DrawParticlesPerfMarker = new ProfilerMarker("DrawParticles");
 
@@ -56,7 +56,6 @@ public class RodChecker : MonoBehaviour
         if (!_meshRenderer) _meshRenderer = GetComponent<MeshRenderer>();
         DMCGameUtilities_OnChangeMaterialRope(DMCGameUtilities.MaterialRopeCurrent);
         CreateListCheckBoxCollider();
-        StartCoroutine(UpdateColliderPosition());
     }
 
     public void OnEnable()
@@ -64,6 +63,8 @@ public class RodChecker : MonoBehaviour
         impostors = new ParticleImpostorRendering();
         GetComponent<ObiActor>().OnInterpolate += DrawParticles;
         DMCGameUtilities.OnChangeMaterialRope += DMCGameUtilities_OnChangeMaterialRope;
+        StartCoroutine(UpdateColliderPosition());
+
 
     }
 
@@ -75,6 +76,8 @@ public class RodChecker : MonoBehaviour
         if (impostors != null)
             impostors.ClearMeshes();
         DestroyImmediate(material);
+        
+
     }
     private void DMCGameUtilities_OnChangeMaterialRope(int index)
     {
@@ -137,19 +140,20 @@ public class RodChecker : MonoBehaviour
 
     private void CreateListCheckBoxCollider()
     {
-        for (int i = 0; i < _hostRod.obiRope.activeParticleCount; i++)
+        for (int i = 0; i < _hostRope.obiRope.activeParticleCount; i++)
         {
             Debug.Log("create particle colider");
 
-            CreateBoxCollider2D().transform.position = _hostRod.obiRope.GetParticlePosition(i) + new Vector3(0, 0, 5);
+            CreateBoxCollider2D().transform.position = _hostRope.obiRope.GetParticlePosition(i) + new Vector3(0, 0, 5);
         }
     }
+
 
     IEnumerator UpdateColliderPosition()
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.1f);
 
             foreach (Mesh mesh in ParticleMeshes)
             {
@@ -174,11 +178,12 @@ public class RodChecker : MonoBehaviour
                 }
             }
             if (!isCheckFree) continue;
-            if (!_hostRod.isPluggerBusy && !_hostRod.isFree && _hostRod.curRodState != RopeState.unplugged)
+            if (!_hostRope.isPluggerBusy && !_hostRope.isFree && _hostRope.curRodState != RopeState.unplugged)
             {
                 if (CheckFree())
                 {
-                    _hostRod.IsFree();
+                    Debug.LogError("ERORR");
+                    _hostRope.IsFree();
                     break;
                 }
             }
@@ -187,13 +192,15 @@ public class RodChecker : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < _rodCheckBoxCollider2DList.Count; i++)
-        {
-
-            //_rodCheckBoxCollider2DList[count].transform.position = _hostRod.obiRod.GetParticlePosition(i) + new Vector3(0,0,5);
-        }
+       
         
     }
+
+    public void StartCheck()
+    {
+    }
+    
+
     //private void FixedUpdate()
     //{
     //    Debug.Log("CAI nay o ngoai" + _hostRod.obiRod.activeParticleCount);
@@ -273,7 +280,7 @@ public class RodChecker : MonoBehaviour
             {
                 for (int i = 0; i < colliders.Length; i++)
                 {
-                    if (colliders[i].gameObject.GetComponent<RodCheckBoxCollider2D>().hostRope != _hostRod)
+                    if (colliders[i].gameObject.GetComponent<RodCheckBoxCollider2D>().hostRope != _hostRope)
                     {
                         //FiveDebug.Log(_hostRod.name + " - Not Free At: " + i);
                         return false;
@@ -281,7 +288,7 @@ public class RodChecker : MonoBehaviour
                 }
             }
         }
-        FiveDebug.Log(_hostRod.name + " - Free!");
+      //  FiveDebug.Log(_hostRope.name + " - Free!");
         return true;
     }
 
@@ -291,7 +298,7 @@ public class RodChecker : MonoBehaviour
     {
         //FiveDebug.Log(_hostRod.name + " - CreateBoxCollider2D");
         RodCheckBoxCollider2D rodCheckBoxCollider2D = Instantiate(_box2DCheckPrefab, transform).GetComponent<RodCheckBoxCollider2D>();
-        rodCheckBoxCollider2D.hostRope = _hostRod;
+        rodCheckBoxCollider2D.hostRope = _hostRope;
         rodCheckBoxCollider2D.bc2D.size = shadownSize;
         _rodCheckBoxCollider2DList.Add(rodCheckBoxCollider2D);
         return rodCheckBoxCollider2D;

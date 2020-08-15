@@ -74,14 +74,14 @@ public class LevelsManager : FiveSingleton<LevelsManager>
     {
         int levelLoad = level < maxLevel ? level : maxLevel - 1;
         Level levelSave = LoadSaveLevel(level);
-        for (int i = 0; i < TangleMasterGame.ropeManager.rods.Count; i++)
+        for (int i = 0; i < TangleMasterGame.ropeManager.ropes.Count; i++)
         {
-            TangleMasterGame.ropeManager.rods[i].Reset();
-            TangleMasterGame.ropeManager.rods[i].gameObject.SetActive(true);
-            TangleMasterGame.ropeManager.rods[i].curPlugPlace = TangleMasterGame.plugPlacesManager.plugPlaces[levelSave._levelRod[i]._pluggerIndex];
-            TangleMasterGame.plugPlacesManager.plugPlaces[levelSave._levelRod[i]._pluggerIndex].curRodPlugger = TangleMasterGame.ropeManager.rods[i].rodPlugger;
-            TangleMasterGame.ropeManager.rods[i].SetPluggedAbs();
-            LoadActorState(TangleMasterGame.ropeManager.rods[i].obiRope, levelSave._levelRod[i]._actorState);
+            TangleMasterGame.ropeManager.ropes[i].Reset();
+            TangleMasterGame.ropeManager.ropes[i].gameObject.SetActive(true);
+            TangleMasterGame.ropeManager.ropes[i].curPlugPlace = TangleMasterGame.plugPlacesManager.plugPlaces[levelSave._levelRod[i]._pluggerIndex];
+            TangleMasterGame.plugPlacesManager.plugPlaces[levelSave._levelRod[i]._pluggerIndex].curRodPlugger = TangleMasterGame.ropeManager.ropes[i].rodPlugger;
+            TangleMasterGame.ropeManager.ropes[i].SetPluggedAbs();
+            LoadActorState(TangleMasterGame.ropeManager.ropes[i].obiRope, levelSave._levelRod[i]._actorState);
         }
         if (levelLoad < LevelsDatabase.instance.levelModels.Count)
             _curLevelModel = LevelsDatabase.instance.levelModels[levelLoad];
@@ -114,11 +114,11 @@ public class LevelsManager : FiveSingleton<LevelsManager>
 
         Level levelSave = new Level();
 
-        for (int r = 0; r < TangleMasterGame.ropeManager.rods.Count; r++)
+        for (int r = 0; r < TangleMasterGame.ropeManager.ropes.Count; r++)
         {
-            int indexRod = TangleMasterGame.plugPlacesManager.IndexOfPlugPlace(TangleMasterGame.ropeManager.rods[r].curPlugPlace);
+            int indexRod = TangleMasterGame.plugPlacesManager.IndexOfPlugPlace(TangleMasterGame.ropeManager.ropes[r].curPlugPlace);
 
-            ActorState actorState = SaveActorState(TangleMasterGame.ropeManager.rods[r].obiRope);
+            ActorState actorState = SaveActorState(TangleMasterGame.ropeManager.ropes[r].obiRope);
             LevelRod levelRod = new LevelRod(actorState, r, indexRod);
             levelSave._levelRod.Add(levelRod);
         }

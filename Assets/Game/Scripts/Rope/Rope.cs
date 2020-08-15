@@ -31,8 +31,7 @@ public class Rope : MonoBehaviour
 
     public IEnumerable<Mesh> ParticleMeshes => _rodChecker.ParticleMeshes;
 
-    [SerializeField]
-    private Transform _ropParent;
+  
 
     public List<Mesh> listMeshes
     {
@@ -65,9 +64,14 @@ public class Rope : MonoBehaviour
     [SerializeField] private RopeLengthController ropeLengthController;
     [SerializeField] private ParticleSystem tangleParticleEffectKnut;
     [SerializeField] private ParticleSystem tangleParticleEffectPlugger;
+    [SerializeField] private MeshRenderer knut;
+  //  [SerializeField] private GameObject ropePref;
+
+
 
     private Coroutine _freeCorou;
 
+ 
     public void SetPluggedAbs()
     {
         rodPlugger.transform.position = curPlugPlace.pluggedPlace.position;
@@ -131,21 +135,48 @@ public class Rope : MonoBehaviour
         _freeCorou = StartCoroutine(SetFreeIE(onDone));
     }
 
+    public void OnNextLevel()
+    {
+      //  ropeLengthController.ResetLength();
+      
+        knut.enabled = true;
+        rodPlugger.GetComponent<MeshRenderer>().enabled = true;
+        rodChecker.StartCheck();
+
+    }
     private IEnumerator SetFreeIE(Action onDone)
     {
         while (_isPluggerBusy) yield return GameManager.WaitForEndOfFrame;
         if (_ropePluggerCorou != null) StopCoroutine(_ropePluggerCorou);
-        Debug.Log("@LOG SetFreeIE");
         //_ropParent.DOScaleY(0, 0.9f);
         GameController.instance.AddConfetti(transform.position + new Vector3(0, 1.8f, 0));
-        ropeLengthController.ShortenRope();
-        yield return new WaitWhile(() => obiRope.restLength > 0);
-        
-            _curPlugPlace.SetUnPlugged();
-            _curPlugPlace.curRodPlugger = null;
-            gameObject.SetActive(false);
-            onDone?.Invoke();
+        FreeEffect();
+          yield return new WaitWhile(() => obiRope.restLength > 0f);
+        Debug.Log("@LOG SetFreeIE");
+      
+    //   yield return new WaitForSeconds(1f);
+        _curPlugPlace.curRodPlugger = null;
+        onDone?.Invoke();
+         gameObject.SetActive(false);
+     //   Destroy(gameObject,2);
        
+    }
+
+    private void FreeEffect()
+    {
+       ropeLengthController.ShortenRope();
+        _curPlugPlace.SetUnPlugged();
+        tangleParticleEffectKnut.Play();
+        tangleParticleEffectPlugger.Play();
+        knut.enabled = false;
+        rodPlugger.GetComponent<MeshRenderer>().enabled = false;
+        
+    }
+
+    public void ResetRopeLength()
+    {
+        gameObject.SetActive(true);
+        ropeLengthController.ResetLength();
     }
 
     private IEnumerator LerpTo(Transform tarTF, Vector3 tarPos, float inTime, Action onStart, Action onDone = null)
