@@ -104,7 +104,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2249258484096169563}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.23, y: -0.01999998, z: 2.144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -133,6 +133,7 @@ MonoBehaviour:
   tangleParticleEffectKnut: {fileID: 7208659442070205860}
   tangleParticleEffectPlugger: {fileID: 1330525247404924019}
   knut: {fileID: 31660708931058761}
+  nut: {fileID: 1451633}
 --- !u!1 &2249258484948806025
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +304,7 @@ GameObject:
   - component: {fileID: 818622745164306094}
   - component: {fileID: 116495806425980147}
   - component: {fileID: 7920206190857972518}
+  - component: {fileID: 1451633}
   m_Layer: 0
   m_Name: Base
   m_TagString: 
@@ -371,6 +373,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &1451633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811357285366400948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ea1a07cc4b3c58449ba2e7b26226858, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3747464581643088278
 GameObject:
   m_ObjectHideFlags: 0

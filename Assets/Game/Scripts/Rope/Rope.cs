@@ -65,7 +65,9 @@ public class Rope : MonoBehaviour
     [SerializeField] private ParticleSystem tangleParticleEffectKnut;
     [SerializeField] private ParticleSystem tangleParticleEffectPlugger;
     [SerializeField] private MeshRenderer knut;
-  //  [SerializeField] private GameObject ropePref;
+    [SerializeField] private NutController nut;
+
+    //  [SerializeField] private GameObject ropePref;
 
 
 
@@ -165,6 +167,7 @@ public class Rope : MonoBehaviour
     private void FreeEffect()
     {
        ropeLengthController.ShortenRope();
+        nut.TurnNut();
         _curPlugPlace.SetUnPlugged();
         tangleParticleEffectKnut.Play();
         tangleParticleEffectPlugger.Play();
