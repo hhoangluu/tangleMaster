@@ -6893,7 +6893,7 @@ MonoBehaviour:
     mode: 0
     interpolation: 0
     gravity: {x: 0, y: -9.81, z: 0}
-    damping: 0.75
+    damping: 0.663
     shockPropagation: 0
     maxAnisotropy: 1
     maxDepenetration: 5

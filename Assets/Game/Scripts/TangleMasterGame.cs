@@ -169,7 +169,7 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
         {
             rope.OnNextLevel();
         }
-        if (DMCGameUtilities.LevelCurrent >= 10) DMCGameUtilities.LevelCurrent = 0;
+        if (DMCGameUtilities.LevelCurrent >= 28) DMCGameUtilities.LevelCurrent = 0;
         else DMCGameUtilities.LevelCurrent++;
 
         LevelsManager.instance.LoadLevel(DMCGameUtilities.LevelCurrent);
