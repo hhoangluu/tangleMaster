@@ -41,6 +41,17 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
          LevelsManager.instance.LoadLevel(DMCGameUtilities.LevelCurrent);
     }
 
+    public void ResetOriginRopes()
+    {
+        for (int i = 0; i < ropeManager.ropes.Count; i++)
+        {
+            ropeManager.ropes[i].curPlugPlace = plugPlacesManager.plugPlaces[i];
+            plugPlacesManager.plugPlaces[i].curRodPlugger = ropeManager.ropes[i].rodPlugger;
+
+            ropeManager.ropes[i].SetPlugged();
+        }
+    }
+    
     private IEnumerator DelayDo(float delay, Action toDo)
     {
         yield return new WaitForSeconds(delay);
@@ -141,7 +152,7 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
         Debug.Log("@LOG LoadNextLevel");
         //while (_totalFreeDone < ropeManager.ropes.Count)
         //    yield return GameManager.WaitForEndOfFrame;
-        yield return new WaitWhile(() => _totalFreeDone < 4);
+        yield return new WaitWhile(() => _totalFreeDone < ropeManager.ropes.Count);
         yield return new WaitForSeconds(1f);
 
         MenuWellDone.instance.Open();
@@ -149,7 +160,6 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
 
     public void LoadNextLevel()
     {
-        ropeManager.InstantiateNewRope();
 
         Debug.Log("@LOG LoadNextLevel");
         _totalFree = 0;

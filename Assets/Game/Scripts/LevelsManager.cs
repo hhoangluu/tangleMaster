@@ -9,6 +9,7 @@ using Obi;
 public class Level
 {
     public List<LevelRod> _levelRod = new List<LevelRod>();
+    public int _numberOfRope;
 }
 
 [Serializable]
@@ -74,6 +75,8 @@ public class LevelsManager : FiveSingleton<LevelsManager>
     {
         int levelLoad = level < maxLevel ? level : maxLevel - 1;
         Level levelSave = LoadSaveLevel(level);
+        TangleMasterGame.ropeManager.InstantiateNewRope(levelSave._numberOfRope);
+
         for (int i = 0; i < TangleMasterGame.ropeManager.ropes.Count; i++)
         {
             TangleMasterGame.ropeManager.ropes[i].Reset();
@@ -113,7 +116,7 @@ public class LevelsManager : FiveSingleton<LevelsManager>
             Directory.CreateDirectory(directory);
 
         Level levelSave = new Level();
-
+        levelSave._numberOfRope = TangleMasterGame.ropeManager.ropes.Count;
         for (int r = 0; r < TangleMasterGame.ropeManager.ropes.Count; r++)
         {
             int indexRod = TangleMasterGame.plugPlacesManager.IndexOfPlugPlace(TangleMasterGame.ropeManager.ropes[r].curPlugPlace);

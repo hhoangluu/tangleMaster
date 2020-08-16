@@ -21,8 +21,8 @@ public class NutController : MonoBehaviour
     {
         if (turn)
         {
-            curY -= Time.fixedDeltaTime * moveSpeed;
-            conveyorMeshRenderer.material.SetTextureOffset("_MainTex", new Vector2(0, curY));
+            curY += Time.fixedDeltaTime * moveSpeed;
+            conveyorMeshRenderer.material.SetTextureOffset("_MainTex", new Vector2(curY, 0));
             curYHead += Time.fixedDeltaTime * moveSpeed;
         }
     }
