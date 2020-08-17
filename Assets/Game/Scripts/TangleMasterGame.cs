@@ -120,25 +120,14 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
         }
     }
 
-    //public void IsFree(Rod rod)
-    //{
-    //    _totalFree += 1;
-    //    Debug.Log("@LOG IsFree: " + _totalFree + "/" + rodsManager.rods.Count);
-    //    rod.SetFree(onDone: () => _totalFreeDone += 1);
-
-    //    if (_totalFree == rodsManager.rods.Count)
-    //    {
-    //        if (_corou != null) StopCoroutine(_corou);
-    //        _corou = StartCoroutine(ShowWellDone());
-    //    }
-    //}
+   
 
     public void IsFree(Rope rod)
     {
         _totalFree += 1;
         Debug.Log("@LOG IsFree: " + _totalFree + "/" + ropeManager.ropes.Count);
         rod.SetFree(onDone: () => _totalFreeDone += 1);
-
+        Handheld.Vibrate();
         if (_totalFree == ropeManager.ropes.Count)
         {
             Debug.Log("s");
@@ -150,8 +139,7 @@ public class TangleMasterGame : FiveSingleton<TangleMasterGame>
     private IEnumerator ShowWellDone()
     {
         Debug.Log("@LOG LoadNextLevel");
-        //while (_totalFreeDone < ropeManager.ropes.Count)
-        //    yield return GameManager.WaitForEndOfFrame;
+   
         yield return new WaitWhile(() => _totalFreeDone < ropeManager.ropes.Count);
         yield return new WaitForSeconds(1f);
 
