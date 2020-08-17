@@ -42,6 +42,8 @@ public class RodChecker : MonoBehaviour
         set => _isCheckFree = value;
     }
 
+    private bool isFree;
+
     private List<RodCheckBoxCollider2D> _rodCheckBoxCollider2DList = new List<RodCheckBoxCollider2D>();
 
     private int count = 0;
@@ -180,7 +182,7 @@ public class RodChecker : MonoBehaviour
             if (!isCheckFree) continue;
             if (!_hostRope.isPluggerBusy && !_hostRope.isFree && _hostRope.curRodState != RopeState.unplugged)
             {
-                if (CheckFree())
+                if (CheckFree() && isFree)
                 {
                     Debug.LogError("ERORR");
                     _hostRope.IsFree();
@@ -288,8 +290,38 @@ public class RodChecker : MonoBehaviour
                 }
             }
         }
+        StartCoroutine(CheckFreeDelay(0.3f));
       //  FiveDebug.Log(_hostRope.name + " - Free!");
         return true;
+    }
+
+    IEnumerator CheckFreeDelay(float amout)
+    {
+        yield return new WaitForSeconds(amout);
+        int flag = 0;
+        foreach (var rc in _rodCheckBoxCollider2DList)
+        {
+            if (!rc.gameObject.activeInHierarchy) continue;
+            colliders = Physics2D.OverlapBoxAll(rc.transform.position, rc.bc2D.size, 0f);
+            if (colliders.Length > 1)
+            {
+                for (int i = 0; i < colliders.Length; i++)
+                {
+                    if (colliders[i].gameObject.GetComponent<RodCheckBoxCollider2D>().hostRope != _hostRope)
+                    {
+                        //FiveDebug.Log(_hostRod.name + " - Not Free At: " + i);
+                        isFree = false;
+                        flag++;
+                    }
+                }
+            }
+        }
+        //  FiveDebug.Log(_hostRope.name + " - Free!");
+        if (flag == 0)
+        {
+
+            isFree = true;
+        }
     }
 
     private Vector3 shadownSize = new Vector3(0.1f, 0.1f, 0.1f);

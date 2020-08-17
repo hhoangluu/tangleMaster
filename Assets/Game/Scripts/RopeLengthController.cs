@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class RopeLengthController : MonoBehaviour
 {
-    private float speed =2f;
+    private float speed =4f;
     private ObiRopeCursor cursor;
     private ObiRope rope;
     private float originLength;
