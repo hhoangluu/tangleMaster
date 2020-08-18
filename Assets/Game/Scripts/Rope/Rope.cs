@@ -153,7 +153,7 @@ public class Rope : MonoBehaviour
         //_ropParent.DOScaleY(0, 0.9f);
         GameController.instance.AddConfetti(transform.position + new Vector3(0, 1.8f, 0));
         FreeEffect();
-          yield return new WaitWhile(() => obiRope.restLength > 0f);
+        yield return new WaitWhile(() => obiRope.restLength > 0.05f);
         Debug.Log("@LOG SetFreeIE");
       
     //   yield return new WaitForSeconds(1f);
